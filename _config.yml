@@ -11,7 +11,7 @@ site-twitter: #if your site has a twitter account, enter it here
 # Author Settings
 author: Kartik Raj Pari # add your name
 author-img: Lastride.jpg # add your photo
-about-author: Anything in life worth doing is worth overdoing. Moderation is for cowards. # add description
+about-author: Anything in life worth doing is worth overdoing. Moderation is for cowards # add description
 social-twitter: # add your Twitter handle
 social-facebook: # add your Facebook handle
 social-github: kartikpari # add your Github handle
