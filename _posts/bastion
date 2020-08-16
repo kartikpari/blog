@@ -1,11 +1,6 @@
 ---
 layout: post
 title: Bastion
-date: 20202-08-16 13:32:20 +0300
-description: Bastion HTB. # Add post description (optional)
-img:  # Add image post (optional)
-fig-caption: # Add figcaption (optional)
-tags: 
 ## Discover and Exploit  
 
 1. root@kali:~# nmap -A -sC -sV -p- 10.10.10.134 
@@ -427,4 +422,4 @@ tags:
 	               2 Dir(s)  11.301.339.136 bytes free                                                                              
 	
 	administrator@BASTION C:\Users\Administrator\Desktop>type root.txt                                                              
-  958850b91811676ed6620a9c430e65c8
+        958850b91811676ed6620a9c430e65c8
