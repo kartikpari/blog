@@ -1,6 +1,5 @@
 title: Hello, world! I'm Kartik Raj Pari
 description: > # this means to ignore newlines until "baseurl:"
-Anything in life worth doing is worth overdoing. Moderation is for cowards
 permalink: ':title/'
 baseurl: '/blog' # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
