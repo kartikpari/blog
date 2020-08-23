@@ -1,5 +1,3 @@
-# Bastion
-
 ## Discover and Exploit  
 
 **1. root@kali:~# nmap -A -sC -sV -p- 10.10.10.134**
