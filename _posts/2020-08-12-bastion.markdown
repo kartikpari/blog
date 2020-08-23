@@ -7,6 +7,7 @@ date: 2020-08-12 13:32:20 +0300
 1. root@kali:~# nmap -A -sC -sV -p- 10.10.10.134
 
  Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-05 16:29 EDT
+ 
         Nmap scan report for 10.10.10.134
 	Host is up (0.028s latency)
 	Not shown: 65522 closed ports
