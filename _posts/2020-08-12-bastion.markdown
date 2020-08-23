@@ -88,12 +88,14 @@ date: 2020-08-12 13:32:20 +0300
 	        IPC$            IPC       Remote IPC
 	SMB1 disabled -- no workgroup available
 	
-3. root@kali:~/results/10.10.10.134/scans# cat smbmap-list-contents.txt 
+3. root@kali:~/results/10.10.10.134/scans# cat smbmap-list-contents.txt
+
 	[!] Authentication error on 10.10.10.134
 	[!] RPC Authentication error occurred
 	[!] Authentication error on 10.10.10.134
 	[+] Guest session       IP: 10.10.10.134:445    Name: 10.10.10.134                                      
 	[|] Work[!] Unable to remove test directory at \\10.10.10.134\Backups\PXTIOWFUHV, please remove manually
+	
 	        Disk                                                    Permissions     Comment
 	        ----                                                    -----------     -------
 	        ADMIN$                                                  NO ACCESS       Remote Admin
