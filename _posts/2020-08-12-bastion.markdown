@@ -2,7 +2,7 @@
 
 ## Discover and Exploit  
 
-**1. **root@kali:~# nmap -A -sC -sV -p- 10.10.10.134****
+**1. root@kali:~# nmap -A -sC -sV -p- 10.10.10.134**
 ```	
   Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-05 16:29 EDT
  
@@ -77,7 +77,7 @@
 	Nmap done: 1 IP address (1 host up) scanned in 599.71 seconds
 ```	
 
-**2. **root@kali:~/results/10.10.10.134/scans# cat smbclient.txt**** 
+**2. root@kali:~/results/10.10.10.134/scans# cat smbclient.txt** 
 ```		
 	        Sharename       Type      Comment
 	        ---------       ----      -------
@@ -88,7 +88,7 @@
 	SMB1 disabled -- no workgroup available
 ```	
 	
-**3. **root@kali:~/results/10.10.10.134/scans# cat smbmap-list-contents.txt****
+**3. root@kali:~/results/10.10.10.134/scans# cat smbmap-list-contents.txt**
 ```	
         [!] Authentication error on 10.10.10.134
         [!] RPC Authentication error occurred
@@ -175,7 +175,7 @@
         [!] Authentication error on 10.10.10.134
 ```	
 
-**4. **root@kali:/tmp/bastio# smbclient \\\\10.10.10.134\\Backups -N****
+**4. root@kali:/tmp/bastio# smbclient \\\\10.10.10.134\\Backups -N**
 ```
         Try "help" to get a list of possible commands.
 	    smb: \> ls
