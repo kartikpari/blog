@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bastion
-
+date: 2020-08-12 13:32:20 +0300
 ## Discover and Exploit  
 
 1. root@kali:~# nmap -A -sC -sV -p- 10.10.10.134 
