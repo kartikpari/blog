@@ -3,7 +3,7 @@
 
 **1. root@kali:/tmp/lame/results/10.10.10.3/scans# cat _full_tcp_nmap.txt**
 ```
-	 Nmap 7.80 scan initiated Wed Aug 26 21:01:59 2020 as: nmap -vv --reason -Pn -A --osscan-guess --version-all -p- -oN /tmp/lame/results/10.10.10.3/scans/_full_tcp_nmap.txt -oX /tmp/lame/results/10.10.10.3/scans/xml/_full_tcp_nmap.xml 10.10.10.3
+	Nmap 7.80 scan initiated Wed Aug 26 21:01:59 2020 as: nmap -vv --reason -Pn -A --osscan-guess --version-all -p- -oN /tmp/lame/results/10.10.10.3/scans/_full_tcp_nmap.txt -oX /tmp/lame/results/10.10.10.3/scans/xml/_full_tcp_nmap.xml 10.10.10.3
 	Nmap scan report for 10.10.10.3
 	Host is up, received user-set (0.028s latency).
 	Scanned at 2020-08-26 21:02:00 EDT for 162s
